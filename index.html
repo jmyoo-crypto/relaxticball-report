@@ -288,6 +288,60 @@ tr.row-hl td { font-weight: 800; background: #fff; }
     </div>
   </div>
 
+  <!-- ══ 채널별 판매 ══ -->
+  <div class="ch-header">
+    <div class="ch-line"></div>
+    <div class="ch-title ch-dark">📦 채널별 판매</div>
+    <div class="ch-line"></div>
+  </div>
+  <div class="card">
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th>채널</th>
+          <th>전전주 매출</th><th>지난주 매출</th><th>변화</th>
+          <th>전전주 건</th><th>지난주 건</th>
+        </tr></thead>
+        <tbody><tr>
+              <td class="lc">cafe24</td>
+              <td class="nc prev">9,682,113원</td>
+              <td class="nc">4,401,616원</td>
+              <td><span class="tag-dn">▼ 54.5%</span></td>
+              <td class="nc prev">293건</td>
+              <td class="nc">128건</td>
+            </tr><tr>
+              <td class="lc">smartstore</td>
+              <td class="nc prev">4,712,420원</td>
+              <td class="nc">2,099,900원</td>
+              <td><span class="tag-dn">▼ 55.4%</span></td>
+              <td class="nc prev">149건</td>
+              <td class="nc">61건</td>
+            </tr><tr>
+              <td class="lc">coupang</td>
+              <td class="nc prev">0원</td>
+              <td class="nc">0원</td>
+              <td><span class="tag-na">—</span></td>
+              <td class="nc prev">0건</td>
+              <td class="nc">0건</td>
+            </tr></tbody>
+      </table>
+    </div>
+    
+    <div style="margin-top:20px;border-top:1px solid #f3f4f6;padding-top:18px;">
+      <div style="font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#aaa;margin-bottom:12px;">일별 매출 & 광고비 — 지난주 04-20~04-23</div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:12px;font-size:12px;font-weight:600;color:#555;">
+        <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#6366f1;margin-right:5px;"></span>cafe24 매출</span>
+        <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#10b981;margin-right:5px;"></span>스마트스토어 매출</span>
+        <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#f59e0b;margin-right:5px;"></span>광고비</span>
+      </div>
+      <div class="chart-card" style="box-shadow:none;border:1px solid #f1f5f9;padding:16px 20px;">
+        <canvas id="chDailyChart" style="max-height:280px;"></canvas>
+      </div>
+    </div>
+  </div>
+
+  
+
   <!-- ══ 메타 분석 흐름 ══ -->
   <div class="ch-header">
     <div class="ch-line"></div>
@@ -383,60 +437,6 @@ tr.row-hl td { font-weight: 800; background: #fff; }
 
     </div>
   </div>
-
-  <!-- ══ 채널별 판매 ══ -->
-  <div class="ch-header">
-    <div class="ch-line"></div>
-    <div class="ch-title ch-dark">📦 채널별 판매</div>
-    <div class="ch-line"></div>
-  </div>
-  <div class="card">
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr>
-          <th>채널</th>
-          <th>전전주 매출</th><th>지난주 매출</th><th>변화</th>
-          <th>전전주 건</th><th>지난주 건</th>
-        </tr></thead>
-        <tbody><tr>
-              <td class="lc">cafe24</td>
-              <td class="nc prev">9,682,113원</td>
-              <td class="nc">4,401,616원</td>
-              <td><span class="tag-dn">▼ 54.5%</span></td>
-              <td class="nc prev">293건</td>
-              <td class="nc">128건</td>
-            </tr><tr>
-              <td class="lc">smartstore</td>
-              <td class="nc prev">4,712,420원</td>
-              <td class="nc">2,099,900원</td>
-              <td><span class="tag-dn">▼ 55.4%</span></td>
-              <td class="nc prev">149건</td>
-              <td class="nc">61건</td>
-            </tr><tr>
-              <td class="lc">coupang</td>
-              <td class="nc prev">0원</td>
-              <td class="nc">0원</td>
-              <td><span class="tag-na">—</span></td>
-              <td class="nc prev">0건</td>
-              <td class="nc">0건</td>
-            </tr></tbody>
-      </table>
-    </div>
-    
-    <div style="margin-top:20px;border-top:1px solid #f3f4f6;padding-top:18px;">
-      <div style="font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#aaa;margin-bottom:12px;">일별 매출 & 광고비 — 지난주 04-20~04-23</div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:12px;font-size:12px;font-weight:600;color:#555;">
-        <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#6366f1;margin-right:5px;"></span>cafe24 매출</span>
-        <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#10b981;margin-right:5px;"></span>스마트스토어 매출</span>
-        <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#f59e0b;margin-right:5px;"></span>광고비</span>
-      </div>
-      <div class="chart-card" style="box-shadow:none;border:1px solid #f1f5f9;padding:16px 20px;">
-        <canvas id="chDailyChart" style="max-height:280px;"></canvas>
-      </div>
-    </div>
-  </div>
-
-  
 
   <!-- ══ 메타 소재별 분석 ══ -->
   <div class="ch-header">
