@@ -146,16 +146,16 @@ tr.row-hl td { font-weight: 800; background: #fff; }
       </div>
       <div style="display:flex;flex-direction:column;gap:10px;">
         <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#333;line-height:1.7;">
-          <span style="font-size:15px;flex-shrink:0;">✅</span>
-          <span>자사몰 매출이 전전주 대비 감소했습니다. 소재 및 예산 효율 점검이 필요합니다.</span>
+          <span style="font-size:15px;flex-shrink:0;">⚠️</span>
+          <span><strong>4일 기간이므로 절대값 비교는 왜곡됨.</strong> 일평균 기준으로 보면 매출/일 ▼21%, 광고비/일은 오히려 ▲35% 증가 → ROAS 434% → 253% 급락.</span>
         </div>
         <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#333;line-height:1.7;">
-          <span style="font-size:15px;flex-shrink:0;">⚠️</span>
-          <span>CPM은 전전주 대비 13% 하락해 노출 효율이 개선됐습니다.</span>
+          <span style="font-size:15px;flex-shrink:0;">🚨</span>
+          <span><strong>소재 CPA 급락이 핵심 문제.</strong> 공홈특가 CPA 8,005→31,350원(▲291%), 판매1위 CPA 13,193→32,320원(▲145%). 두 소재에 비용이 집중됐으나 전환이 따라오지 않음.</span>
         </div>
         <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#333;line-height:1.7;">
           <span style="font-size:15px;flex-shrink:0;">💡</span>
-          <span>외부 요인(라이브 방송, 프로모션, 비밀페이지 이탈 전환 등)의 기여 여부도 함께 검토해주세요.</span>
+          <span>CPM은 ▼13% 개선됐으나 구매 전환율이 낮아 CPA 악화. 마감임박 소재 집행 중단(186,005→0원)으로 urgency 소재가 사라진 영향도 검토 필요.</span>
         </div>
       </div>
     </div>
@@ -357,7 +357,7 @@ tr.row-hl td { font-weight: 800; background: #fff; }
         <div class="flow-body">
           <div class="flow-tag">WHY — 현상</div>
           <div class="flow-title">자사몰 매출이 전전주 대비 ▼ 54.5% 변화했다</div>
-          <div class="flow-text">지난주 <strong>4,401,616원 / 128건</strong> &nbsp;←&nbsp; 전전주 9,682,113원 / 293건.<br>광고비가 ▼ 22.1% 줄었음에도 매출은 감소했다.</div>
+          <div class="flow-text">지난주(4일) <strong>자사몰 4,401,616원 / 128건</strong> &nbsp;←&nbsp; 전전주(7일) 9,682,113원 / 293건.<br>단순 비교 시 ▼54.5%이나 <strong>일평균으로 보면 매출/일 ▼21%</strong>. 반면 광고비/일은 473,753→641,607원으로 ▲35% 증가. 광고비를 더 쓰고도 매출이 줄었다.</div>
         </div>
       </div>
 
@@ -376,9 +376,11 @@ tr.row-hl td { font-weight: 800; background: #fff; }
         <div class="flow-left"><div class="flow-icon">💡</div><div class="flow-connector"></div></div>
         <div class="flow-body">
           <div class="flow-tag">HYPOTHESIS — 추가 가설</div>
-          <div class="flow-title">외부 요인도 자사몰 전환에 기여했을 가능성</div>
+          <div class="flow-title">소재 피로도 + 예산 배분 미스매치가 동시에 작동했을 가능성</div>
           <ul class="flow-text">
-            <li>라이브 방송, 프로모션, 이전 방문자 재방문 등 외부 유입 요인이 있는 경우 수동으로 내용을 보완해주세요.</li>
+            <li>공홈특가·판매1위 소재가 전전주 대비 비용이 급증했음에도 전환이 따라오지 않음 → 이미 피로도가 쌓인 소재에 예산이 집중된 것으로 추정.</li>
+            <li>전전주 효율이 가장 좋았던 마감임박 소재(CPA 10,941원)가 4/20~23에 집행되지 않음 → urgency 소재 부재로 전환율 하락.</li>
+            <li>주말 포함 여부 차이: 전전주(4/13~19)는 주말 포함 7일, 지난주(4/20~23)는 평일 4일 → 주말 충동구매 효과가 빠진 영향도 검토 필요.</li>
           </ul>
         </div>
       </div>
@@ -428,8 +430,8 @@ tr.row-hl td { font-weight: 800; background: #fff; }
 
           <div class="dark-box" style="margin-top:14px;">
             <div class="d-label">결론</div>
-            <div class="d-row"><span class="d-icon">✅</span>광고비 ▼ 22.6%에 매출 ▼ 54.8% — 소재 효율 변화를 데이터로 확인하라.</div>
-            <div class="d-row"><span class="d-icon">✅</span>CPM ▼ 12.9% — 노출 효율이 개선됐습니다.</div>
+            <div class="d-row"><span class="d-icon">🚨</span>일평균 광고비 ▲35% 증가에도 일평균 매출 ▼21% — 소재 효율이 전반적으로 악화됐다. CPM 개선(▼13%)에도 불구하고 클릭→구매 전환이 무너진 것이 핵심 원인.</div>
+            <div class="d-row"><span class="d-icon">🔧</span>공홈특가·판매1위 소재 CPA 3~4배 급등. 마감임박 소재(전전주 CPA 10,941원) 재집행 검토 필요. 주말 없는 4일 기간임을 감안해도 ROAS 253%는 유의미한 하락.</div>
           </div>
           <p class="note">※ 볼륨 지표는 meta_ads 탭 기준 / ROAS는 cafe24 실매출 ÷ 메타 광고비</p>
         </div>
