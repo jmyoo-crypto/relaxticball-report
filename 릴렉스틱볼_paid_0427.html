@@ -78,6 +78,7 @@ body { font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-s
 .cr-subsec { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #aaa; margin-bottom: 12px; }
 .cr-kpi-row { display: grid; grid-template-columns: repeat(5,1fr); gap: 10px; }
 .cr-kpi-row.cols3 { grid-template-columns: repeat(3,1fr); }
+.cr-kpi-row.cols4 { grid-template-columns: repeat(4,1fr); }
 @media(max-width:640px) { .cr-kpi-row { grid-template-columns: 1fr 1fr; } }
 .cr-kpi-box { background: #f8fafc; border-radius: 10px; padding: 14px 16px; border-left: 3px solid transparent; }
 .cr-kpi-box.up   { border-left-color: #22c55e; }
@@ -440,7 +441,7 @@ tr.row-hl td { font-weight: 800; background: #fff; }
             <div class="metric-block-title">효율 지표 — CPM · CTR · CPA · ROAS</div>
             <table>
               <thead><tr><th>지표</th><th>전전주 04-13~04-19</th><th>지난주 04-20~04-26</th><th>전전주 대비</th><th>전월 동기 대비<br><small style="font-weight:400;">(03-20~03-26)</small></th></tr></thead>
-              <tbody><tr><td>CPM</td><td>15,765원</td><td>18,639원</td><td><span class="tag-dn">▲ 18.2%</span></td><td><span class="tag-dn">▲ 20.8%</span></td></tr><tr><td>CTR</td><td>1.99%</td><td>1.84%</td><td><span class="tag-dn">▼ 7.8%</span></td><td><span class="tag-dn">▼ 19.7%</span></td></tr><tr><td>CPA</td><td>17,193원</td><td>28,262원</td><td><span class="tag-dn">▲ 64.4%</span></td><td><span class="tag-dn">▲ 29.9%</span></td></tr><tr class="row-hl"><td>ROAS</td><td>443%</td><td>251%</td><td><span class="tag-dn">▼ 43.2%</span></td><td><span class="tag-neu">—</span></td></tr></tbody>
+              <tbody><tr><td>CPM</td><td>15,765원</td><td>18,639원</td><td><span class="tag-dn">▲ 18.2%</span></td><td><span class="tag-dn">▲ 20.8%</span></td></tr><tr><td>CTR</td><td>1.99%</td><td>1.84%</td><td><span class="tag-dn">▼ 7.8%</span></td><td><span class="tag-dn">▼ 19.7%</span></td></tr><tr><td>CPA</td><td>17,193원</td><td>28,262원</td><td><span class="tag-dn">▲ 64.4%</span></td><td><span class="tag-dn">▲ 29.9%</span></td></tr><tr class="row-hl"><td>ROAS</td><td>298%</td><td>185%</td><td><span class="tag-dn">▼ 37.9%</span></td><td><span class="tag-neu">—</span></td></tr></tbody>
             </table>
             <div style="margin-top:14px;">
               <div style="font-size:11px;font-weight:700;color:#aaa;letter-spacing:1px;margin-bottom:10px;">CHART — CPM·CPA (막대, 왼쪽 축) / CTR·ROAS (선, 오른쪽 축)</div>
@@ -504,7 +505,7 @@ tr.row-hl td { font-weight: 800; background: #fff; }
           <span class="tag-na">→ 0%</span>
         </div></div>
             <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
-            <div class="cr-kpi-row cols3"><div class="cr-kpi-box up">
+            <div class="cr-kpi-row cols4"><div class="cr-kpi-box up">
           <div class="cr-kpi-lbl">CPM</div>
           <div class="cr-kpi-prev">전전주 14,437원</div>
           <div class="cr-kpi-curr">13,909원</div>
@@ -519,6 +520,11 @@ tr.row-hl td { font-weight: 800; background: #fff; }
           <div class="cr-kpi-prev">전전주 15,745원</div>
           <div class="cr-kpi-curr">21,089원</div>
           <span class="tag-up">▲ 33.9%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 225.2%</div>
+          <div class="cr-kpi-curr">160.5%</div>
+          <span class="tag-dn">▼ 28.7%</span>
         </div></div>
             <button class="detail-toggle" id="camp-toggle-0" onclick="toggleDetail(0)">광고별 상세 보기 ▾</button>
           </div>
@@ -558,7 +564,7 @@ tr.row-hl td { font-weight: 800; background: #fff; }
           <span class="tag-na">—</span>
         </div></div>
               <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
-              <div class="cr-kpi-row cols3"><div class="cr-kpi-box up">
+              <div class="cr-kpi-row cols4"><div class="cr-kpi-box up">
           <div class="cr-kpi-lbl">CPM</div>
           <div class="cr-kpi-prev">전전주 22,476원</div>
           <div class="cr-kpi-curr">0원</div>
@@ -571,6 +577,11 @@ tr.row-hl td { font-weight: 800; background: #fff; }
         </div><div class="cr-kpi-box none">
           <div class="cr-kpi-lbl">CPA</div>
           <div class="cr-kpi-prev">전전주 10,143원</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 294.8%</div>
           <div class="cr-kpi-curr">—</div>
           <span class="tag-na">—</span>
         </div></div>
@@ -632,7 +643,7 @@ tr.row-hl td { font-weight: 800; background: #fff; }
           <span class="tag-na">—</span>
         </div></div>
               <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
-              <div class="cr-kpi-row cols3"><div class="cr-kpi-box up">
+              <div class="cr-kpi-row cols4"><div class="cr-kpi-box up">
           <div class="cr-kpi-lbl">CPM</div>
           <div class="cr-kpi-prev">전전주 16,996원</div>
           <div class="cr-kpi-curr">0원</div>
@@ -645,6 +656,11 @@ tr.row-hl td { font-weight: 800; background: #fff; }
         </div><div class="cr-kpi-box none">
           <div class="cr-kpi-lbl">CPA</div>
           <div class="cr-kpi-prev">전전주 46,501원</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 83.2%</div>
           <div class="cr-kpi-curr">—</div>
           <span class="tag-na">—</span>
         </div></div>
@@ -706,7 +722,7 @@ tr.row-hl td { font-weight: 800; background: #fff; }
           <span class="tag-dn">▼ 2.7%</span>
         </div></div>
               <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
-              <div class="cr-kpi-row cols3"><div class="cr-kpi-box dn">
+              <div class="cr-kpi-row cols4"><div class="cr-kpi-box dn">
           <div class="cr-kpi-lbl">CPM</div>
           <div class="cr-kpi-prev">전전주 28,471원</div>
           <div class="cr-kpi-curr">36,604원</div>
@@ -720,6 +736,11 @@ tr.row-hl td { font-weight: 800; background: #fff; }
           <div class="cr-kpi-lbl">CPA</div>
           <div class="cr-kpi-prev">전전주 —</div>
           <div class="cr-kpi-curr">10,542원</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">283.6%</div>
           <span class="tag-na">—</span>
         </div></div>
               <div class="cr-subsec" style="margin-top:18px;">기간별 성과 트렌드</div>
@@ -780,7 +801,7 @@ tr.row-hl td { font-weight: 800; background: #fff; }
           <span class="tag-up">▲ 2.7%</span>
         </div></div>
               <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
-              <div class="cr-kpi-row cols3"><div class="cr-kpi-box dn">
+              <div class="cr-kpi-row cols4"><div class="cr-kpi-box dn">
           <div class="cr-kpi-lbl">CPM</div>
           <div class="cr-kpi-prev">전전주 22,573원</div>
           <div class="cr-kpi-curr">29,058원</div>
@@ -795,6 +816,11 @@ tr.row-hl td { font-weight: 800; background: #fff; }
           <div class="cr-kpi-prev">전전주 9,936원</div>
           <div class="cr-kpi-curr">25,030원</div>
           <span class="tag-up">▲ 151.9%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 388.1%</div>
+          <div class="cr-kpi-curr">135.4%</div>
+          <span class="tag-dn">▼ 65.1%</span>
         </div></div>
               <div class="cr-subsec" style="margin-top:18px;">기간별 성과 트렌드</div>
         <div style="overflow-x:auto;">
@@ -854,7 +880,7 @@ tr.row-hl td { font-weight: 800; background: #fff; }
           <span class="tag-na">→ 0%</span>
         </div></div>
               <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
-              <div class="cr-kpi-row cols3"><div class="cr-kpi-box up">
+              <div class="cr-kpi-row cols4"><div class="cr-kpi-box up">
           <div class="cr-kpi-lbl">CPM</div>
           <div class="cr-kpi-prev">전전주 14,013원</div>
           <div class="cr-kpi-curr">13,185원</div>
@@ -869,6 +895,11 @@ tr.row-hl td { font-weight: 800; background: #fff; }
           <div class="cr-kpi-prev">전전주 15,398원</div>
           <div class="cr-kpi-curr">20,825원</div>
           <span class="tag-up">▲ 35.2%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 230.6%</div>
+          <div class="cr-kpi-curr">162.6%</div>
+          <span class="tag-dn">▼ 29.5%</span>
         </div></div>
               <div class="cr-subsec" style="margin-top:18px;">기간별 성과 트렌드</div>
         <div style="overflow-x:auto;">
@@ -1276,7 +1307,7 @@ function switchMetaVol(idx) {
         { type:'bar',  label:'CPM (원)', data:[15765, 18640], backgroundColor:['rgba(99,102,241,0.6)','rgba(99,102,241,1)'], borderRadius:5, yAxisID:'y',  order:2 },
         { type:'bar',  label:'CPA (원)', data:[17193, 28262], backgroundColor:['rgba(245,158,11,0.6)','rgba(245,158,11,1)'],  borderRadius:5, yAxisID:'y',  order:2 },
         { type:'line', label:'CTR (%)',  data:[1.99, 1.84], borderColor:'#10b981', backgroundColor:'rgba(16,185,129,0.1)', borderWidth:2.5, pointRadius:5, pointBackgroundColor:'#10b981', tension:0, yAxisID:'y2', order:1 },
-        { type:'line', label:'ROAS (%)', data:[443, 251], borderColor:'#3b82f6', backgroundColor:'rgba(59,130,246,0.1)', borderWidth:2.5, pointRadius:5, pointBackgroundColor:'#3b82f6', tension:0, yAxisID:'y2', order:1 },
+        { type:'line', label:'ROAS (%)', data:[298, 185], borderColor:'#3b82f6', backgroundColor:'rgba(59,130,246,0.1)', borderWidth:2.5, pointRadius:5, pointBackgroundColor:'#3b82f6', tension:0, yAxisID:'y2', order:1 },
       ]
     },
     options: {
