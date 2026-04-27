@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EMS허리마사지기 유료광고 주간보고서 2026-04-27</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background: #f0f2f5; color: #1a1a2e; line-height: 1.7; }
+.hero { background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 100%); color: #fff; padding: 52px 40px 44px; }
+.hero .label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 14px; }
+.hero h1 { font-size: 28px; font-weight: 800; line-height: 1.35; margin-bottom: 10px; }
+.hero p  { font-size: 13px; color: rgba(255,255,255,.5); }
+.hero-chips { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+.hero-chip { font-size: 11px; font-weight: 600; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 20px; padding: 3px 12px; color: rgba(255,255,255,.65); }
+.container { max-width: 980px; margin: 0 auto; padding: 36px 24px 80px; }
+.section { margin-bottom: 28px; }
+.section-title { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #888; padding: 0 4px; margin-bottom: 12px; }
+.card { background: #fff; border-radius: 14px; padding: 26px 28px; margin-bottom: 12px; box-shadow: 0 1px 8px rgba(0,0,0,.05); }
+.card-title { font-size: 16px; font-weight: 800; color: #1a1a2e; margin-bottom: 20px; }
+.vs-header { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.vs-badge { padding: 5px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; border: 1px solid transparent; }
+.vs-curr { background: #1a1a2e; color: #fff; }
+.vs-prev { background: #f7f8fa; color: #64748b; border-color: #e2e8f0; }
+.vs-prev-wk { background: #f7f8fa; color: #64748b; border-color: #e2e8f0; }
+.vs-prev-mo { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+.vs-label { font-size: 11px; font-weight: 800; color: #ccc; }
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+@media(max-width:640px) { .kpi-grid { grid-template-columns: 1fr 1fr; } }
+.kpi-box { background: #f7f8fa; border-radius: 10px; padding: 18px 20px; }
+.kpi-lbl  { font-size: 11px; font-weight: 700; letter-spacing: .5px; color: #999; margin-bottom: 8px; }
+.kpi-prev3 { font-size: 11px; color: #d4d4d4; margin-bottom: 2px; }
+.kpi-prev { font-size: 12px; color: #bbb; margin-bottom: 4px; }
+.kpi-curr { font-size: 20px; font-weight: 800; color: #1a1a2e; margin-bottom: 8px; }
+.tag-up { display: inline-block; padding: 3px 9px; border-radius: 6px; font-size: 12px; font-weight: 700; background: #f6ffed; color: #389e0d; }
+.tag-dn { display: inline-block; padding: 3px 9px; border-radius: 6px; font-size: 12px; font-weight: 700; background: #fff1f0; color: #cf1322; }
+.tag-na { display: inline-block; padding: 3px 9px; border-radius: 6px; font-size: 12px; font-weight: 700; background: #f5f5f5; color: #aaa; }
+.chart-sep { border-top: 1px solid #f3f4f6; margin: 24px 0 18px; }
+.legend { display: flex; gap: 20px; margin-bottom: 16px; font-size: 12px; font-weight: 600; color: #555; }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+.toggle-bar { display: flex; gap: 8px; margin-bottom: 24px; }
+.toggle-btn { padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 700; border: 1px solid #e2e8f0; background: #f7f8fa; color: #64748b; cursor: pointer; transition: all .15s; }
+.toggle-btn.active { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
+.cmp-panel { display: none; }
+.cmp-panel.active { display: block; }
+.chart-tab-bar { display: flex; gap: 6px; margin-bottom: 16px; }
+.chart-tab, .chart-tab2 { padding: 5px 14px; border-radius: 6px; font-size: 11px; font-weight: 700; border: 1px solid #e2e8f0; background: #f7f8fa; color: #94a3b8; cursor: pointer; transition: all .15s; }
+.chart-tab.active, .chart-tab2.active { background: #f1f5f9; color: #1a1a2e; border-color: #cbd5e1; }
+.chart-single2 { display: none; }
+.chart-single2.active { display: block; }
+.chart-tab3 { padding: 5px 14px; border-radius: 6px; font-size: 11px; font-weight: 700; border: 1px solid #e2e8f0; background: #f7f8fa; color: #94a3b8; cursor: pointer; transition: all .15s; }
+.chart-tab3.active { background: #f1f5f9; color: #1a1a2e; border-color: #cbd5e1; }
+.chart-single3 { display: none; }
+.chart-single3.active { display: block; }
+.chart-single { display: none; }
+.chart-single.active { display: block; }
+.chart-card { background: #fff; border-radius: 14px; padding: 20px 20px 14px; border: 1px solid #f0f0f0; }
+.chart-lbl { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #aaa; margin-bottom: 14px; }
+.budget-section { margin-top: 20px; padding-top: 18px; border-top: 1px solid #f3f4f6; }
+.budget-title { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #aaa; margin-bottom: 14px; }
+.budget-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.budget-row:last-child { margin-bottom: 0; }
+.budget-period { font-size: 11px; font-weight: 700; color: #94a3b8; width: 100px; flex-shrink: 0; }
+.budget-bar-wrap { flex: 1; height: 8px; background: #f1f5f9; border-radius: 99px; overflow: hidden; display: flex; }
+.budget-bar-meta  { background: #1a1a2e; height: 100%; border-radius: 99px 0 0 99px; }
+.budget-bar-other { background: #34d399; height: 100%; }
+.budget-bar-naver { background: #34d399; height: 100%; }
+.budget-labels { display: flex; gap: 12px; font-size: 11px; font-weight: 600; flex-shrink: 0; }
+.budget-meta-lbl  { color: #1a1a2e; }
+.budget-other-lbl { color: #34d399; }
+.ch-header { display: flex; align-items: center; gap: 12px; margin: 36px 0 14px; }
+.ch-header .ch-line { flex: 1; height: 1px; background: #e5e7eb; }
+.ch-header .ch-title { font-size: 13px; font-weight: 700; white-space: nowrap; padding: 5px 14px; border-radius: 20px; }
+.ch-meta  { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.ch-dark  { background: #f8fafc; color: #334155; border: 1px solid #e2e8f0; }
+.cr-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.cr-tab { padding: 8px 16px; border-radius: 8px; border: 1.5px solid #e2e8f0; background: #f8fafc; font-size: 13px; font-weight: 700; color: #64748b; cursor: pointer; transition: all .15s; }
+.cr-tab:hover { border-color: #1a1a2e; color: #1a1a2e; }
+.cr-tab.active { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
+.cr-panel { display: none; }
+.cr-panel.active { display: block; }
+.cr-subsec { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #aaa; margin-bottom: 12px; }
+.cr-kpi-row { display: grid; grid-template-columns: repeat(5,1fr); gap: 10px; }
+.cr-kpi-row.cols3 { grid-template-columns: repeat(3,1fr); }
+.cr-kpi-row.cols4 { grid-template-columns: repeat(4,1fr); }
+@media(max-width:640px) { .cr-kpi-row { grid-template-columns: 1fr 1fr; } }
+.cr-kpi-box { background: #f8fafc; border-radius: 10px; padding: 14px 16px; border-left: 3px solid transparent; }
+.cr-kpi-box.up   { border-left-color: #22c55e; }
+.cr-kpi-box.dn   { border-left-color: #ef4444; }
+.cr-kpi-box.none { border-left-color: #cbd5e1; }
+.cr-kpi-lbl  { font-size: 11px; font-weight: 700; color: #94a3b8; margin-bottom: 6px; letter-spacing: .5px; }
+.cr-kpi-prev { font-size: 12px; color: #bbb; margin-bottom: 2px; }
+.cr-kpi-curr { font-size: 18px; font-weight: 800; color: #1a1a2e; margin-bottom: 6px; }
+.cr-trend-tbl { width:100%; border-collapse:collapse; font-size:12px; min-width:420px; margin-top:4px; }
+.cr-trend-tbl thead tr { border-bottom:2px solid #e2e8f0; }
+.tr-lbl-hd { padding:6px 10px; text-align:left; font-size:11px; font-weight:700; color:#94a3b8; white-space:nowrap; }
+.tr-hd { padding:6px 10px; text-align:right; font-size:11px; font-weight:700; color:#94a3b8; white-space:nowrap; line-height:1.4; }
+.tr-hd.tr-curr { color:#1a1a2e; background:#f8fafc; border-radius:6px 6px 0 0; }
+.tr-hd.tr-total { color:#6366f1; }
+.tr-lbl { padding:7px 10px; text-align:left; font-size:11px; font-weight:700; color:#64748b; white-space:nowrap; border-bottom:1px solid #f5f5f5; }
+.tr-cell { padding:7px 10px; text-align:right; font-size:12px; color:#374151; border-bottom:1px solid #f5f5f5; font-weight:500; }
+.tr-cell.tr-good { color:#16a34a; font-weight:700; }
+.tr-cell.tr-bad  { color:#dc2626; font-weight:700; }
+.cr-chart-tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+.cr-chart-tab { padding: 5px 14px; border-radius: 6px; border: 1.5px solid #e2e8f0; background: #f8fafc; font-size: 12px; font-weight: 700; color: #64748b; cursor: pointer; }
+.cr-chart-tab.active { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
+.camp-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+.camp-tab { padding: 8px 18px; border-radius: 20px; border: 1.5px solid #6366f1; background: #fff; color: #6366f1; font-size: 13px; font-weight: 700; cursor: pointer; transition: all .15s; }
+.camp-tab:hover { background: #eef2ff; }
+.camp-tab.active { background: #6366f1; color: #fff; border-color: #6366f1; }
+.camp-panel { display: none; }
+.camp-panel.active { display: block; }
+.camp-detail { margin-top: 20px; padding-top: 18px; border-top: 1px solid #f3f4f6; }
+.detail-toggle { margin-top: 16px; padding: 8px 20px; border-radius: 8px; border: 1px solid #e2e8f0; background: #f8fafc; color: #64748b; font-size: 12px; font-weight: 700; cursor: pointer; transition: all .15s; display: block; width: 100%; text-align: center; }
+.detail-toggle:hover { background: #f1f5f9; color: #1a1a2e; border-color: #cbd5e1; }
+.tbl-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 520px; }
+thead tr { border-bottom: 1px solid #eee; }
+th { padding: 7px 10px; text-align: right; font-size: 11px; font-weight: 700; letter-spacing: .5px; color: #aaa; white-space: nowrap; }
+th:first-child { text-align: left; }
+td { padding: 9px 10px; text-align: right; border-bottom: 1px solid #f5f5f5; color: #1a1a2e; font-weight: 500; }
+td:first-child { text-align: left; font-weight: 700; }
+tr:last-child td { border-bottom: none; }
+.dark-box { background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 100%); border-radius: 14px; padding: 24px 28px; margin-top: 14px; }
+.dark-box .d-label { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 14px; }
+.dark-box .d-row { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: rgba(255,255,255,.75); line-height: 1.65; margin-bottom: 10px; }
+.dark-box .d-row:last-child { margin-bottom: 0; }
+.dark-box .d-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+.note { font-size: 11px; color: #bbb; margin-top: 10px; }
+.rst-tab { padding: 5px 14px; border-radius: 6px; border: 1.5px solid #e2e8f0; background: #f8fafc; font-size: 12px; font-weight: 700; color: #64748b; cursor: pointer; }
+.rst-tab.active { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
+.flow { display: flex; flex-direction: column; }
+.flow-item { display: flex; gap: 16px; }
+.flow-left { display: flex; flex-direction: column; align-items: center; width: 36px; flex-shrink: 0; }
+.flow-icon { font-size: 22px; line-height: 1; margin-top: 2px; }
+.flow-connector { flex: 1; width: 1px; background: #e5e7eb; margin: 6px 0; min-height: 20px; }
+.flow-body { flex: 1; padding-bottom: 24px; }
+.flow-tag { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 1px; color: #aaa; text-transform: uppercase; margin-bottom: 5px; }
+.flow-title { font-size: 16px; font-weight: 800; margin-bottom: 8px; color: #1a1a2e; }
+.flow-text { font-size: 13px; color: #555; line-height: 1.75; }
+.flow-text li { margin-left: 16px; margin-bottom: 4px; }
+.metric-block { background: #f7f8fa; border-radius: 10px; padding: 16px 18px; margin-top: 14px; }
+.metric-block-title { font-size: 10px; font-weight: 800; color: #aaa; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+.tag-neu { display: inline-block; padding: 2px 7px; border-radius: 5px; font-size: 11px; font-weight: 700; background: #f5f5f5; color: #aaa; }
+tr.row-hl td { font-weight: 800; background: #fff; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="label">EMS허리마사지기 · 유료광고 주간보고서</div>
+  <h1>광고 성과 주간 리포트</h1>
+  <p>지난주 2026-04-20 ~ 2026-04-26 &nbsp;|&nbsp; 기준일 2026-04-27</p>
+  <div class="hero-chips">
+    <span class="hero-chip">🔵 메타 → cafe24 (자사몰)</span>
+    <span class="hero-chip">🟢 네이버 GFA · 애드부스트 → 스마트스토어</span>
+    <span class="hero-chip">🛒 쿠팡</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ══ 주간 요약 ══ -->
+  <div class="section">
+    <div class="section-title">이번 주 요약</div>
+    <div class="card">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;">
+        <div style="background:#f6ffed;border:1px solid #b7eb8f;border-radius:8px;padding:8px 16px;text-align:center;"><div style="font-size:10px;font-weight:700;color:#389e0d;letter-spacing:1px;margin-bottom:2px;">광고비</div><div style="font-size:18px;font-weight:800;color:#389e0d;">▼ 12%</div></div>
+        <div style="background:#fff1f0;border:1px solid #ffa39e;border-radius:8px;padding:8px 16px;text-align:center;"><div style="font-size:10px;font-weight:700;color:#cf1322;letter-spacing:1px;margin-bottom:2px;">자사몰 매출</div><div style="font-size:18px;font-weight:800;color:#cf1322;">▼ 8%</div></div>
+        <div style="background:#fff1f0;border:1px solid #ffa39e;border-radius:8px;padding:8px 16px;text-align:center;"><div style="font-size:10px;font-weight:700;color:#cf1322;letter-spacing:1px;margin-bottom:2px;">스마트스토어</div><div style="font-size:18px;font-weight:800;color:#cf1322;">▼ 20%</div></div>
+        <div style="background:#f6ffed;border:1px solid #b7eb8f;border-radius:8px;padding:8px 16px;text-align:center;"><div style="font-size:10px;font-weight:700;color:#389e0d;letter-spacing:1px;margin-bottom:2px;">ROAS</div><div style="font-size:18px;font-weight:800;color:#389e0d;">▲ 5%</div></div>
+      </div>
+      <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:13px;color:#333;line-height:1.7;">
+        <li>💬 일요일 오전 카카오 플친 전송 (4/26)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ 비교 기준 ══ -->
+  <div class="section">
+    <div class="section-title">📊 비교 기준 — 숫자 하나로는 판단할 수 없다</div>
+    <div class="card">
+
+      <div class="toggle-bar">
+        <button class="toggle-btn active" onclick="switchPanel(0)">지난주 VS 전전주</button>
+        <button class="toggle-btn" onclick="switchPanel(1)">4월 1~26일 VS 3월 1~26일</button>
+        <button class="toggle-btn" onclick="switchPanel(2)">가정의달 04-20~04-26 VS 4주년 04-06~04-19</button>
+      </div>
+
+      <div class="cmp-panel active" id="panel-0">
+        <div class="vs-header">
+          <div class="vs-badge vs-prev" style="font-size:11px;">3주전 04-06~04-12</div><div class="vs-label">→</div>
+          <div class="vs-badge vs-curr">지난주 04-20~04-26</div>
+          <div class="vs-label">VS</div>
+          <div class="vs-badge vs-prev-wk">전전주 04-13~04-19</div>
+        </div>
+        <div class="legend">
+          <span><span class="legend-dot" style="background:#94a3b8;border:1px dashed #94a3b8;"></span>3주전 04-06~04-12</span>
+          <span><span class="legend-dot" style="background:#34d399;"></span>전전주 04-13~04-19</span>
+          <span><span class="legend-dot" style="background:#1a1a2e;"></span>지난주 04-20~04-26</span>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi-box">
+            <div class="kpi-lbl">페이드 채널 매출</div>
+            <div class="kpi-prev3">3주전 1,659,000원</div>
+            <div class="kpi-prev">1,037,500원</div>
+            <div class="kpi-curr">953,200원</div>
+            <span class="tag-dn">▼ 8.1%</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-lbl">총 광고비</div>
+            <div class="kpi-prev3">3주전 1,366,494원</div>
+            <div class="kpi-prev">373,408원</div>
+            <div class="kpi-curr">327,182원</div>
+            <span class="tag-dn">▼ 12.4%</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-lbl">순마진(공헌이익)</div>
+            <div class="kpi-prev3">3주전 -358,379원</div>
+            <div class="kpi-prev">233,278원</div>
+            <div class="kpi-curr">198,712원</div>
+            <span class="tag-dn">▼ 14.8%</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-lbl">ROAS</div>
+            <div class="kpi-prev3">3주전 121%</div>
+            <div class="kpi-prev">278%</div>
+            <div class="kpi-curr">291%</div>
+            <span class="tag-up">▲ 4.9%</span>
+          </div>
+        </div>
+
+        <div class="chart-sep"></div>
+        <div class="chart-tab-bar">
+          <button class="chart-tab active" onclick="switchChart(0)">매출</button>
+          <button class="chart-tab" onclick="switchChart(1)">광고비</button>
+          <button class="chart-tab" onclick="switchChart(2)">ROAS</button>
+        </div>
+        <div class="chart-single active" id="ct-0"><div class="chart-card"><div class="chart-lbl">페이드 채널 매출</div><canvas id="cRev"></canvas></div></div>
+        <div class="chart-single"        id="ct-1"><div class="chart-card"><div class="chart-lbl">총 광고비</div><canvas id="cCost"></canvas></div></div>
+        <div class="chart-single"        id="ct-2"><div class="chart-card"><div class="chart-lbl">ROAS (%)</div><canvas id="cRoas"></canvas></div></div>
+
+        <div class="budget-section">
+          <div class="budget-title">💰 광고 예산 배분 — 메타 vs 네이버</div>
+          <div class="budget-row">
+            <div class="budget-period">지난주 04-20~04-26</div>
+            <div class="budget-bar-wrap">
+              <div class="budget-bar-meta"  style="width:83.9%"></div>
+              <div class="budget-bar-other" style="width:16.1%"></div>
+            </div>
+            <div class="budget-labels">
+              <span class="budget-meta-lbl">메타 83.9%</span>
+              <span class="budget-other-lbl">네이버 16.1%</span>
+            </div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-period">전전주 04-13~04-19</div>
+            <div class="budget-bar-wrap">
+              <div class="budget-bar-meta"  style="width:82.1%"></div>
+              <div class="budget-bar-other" style="width:17.9%"></div>
+            </div>
+            <div class="budget-labels">
+              <span class="budget-meta-lbl">메타 82.1%</span>
+              <span class="budget-other-lbl">네이버 17.9%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="cmp-panel" id="panel-1">
+        <div class="vs-header">
+          <div class="vs-badge vs-curr">4월 1~26일</div>
+          <div class="vs-label">VS</div>
+          <div class="vs-badge vs-prev-mo">3월 1~26일</div>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi-box">
+            <div class="kpi-lbl">페이드 채널 매출</div>
+            <div class="kpi-prev">4,047,837원</div>
+            <div class="kpi-curr">7,944,709원</div>
+            <span class="tag-up">▲ 96.3%</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-lbl">총 광고비</div>
+            <div class="kpi-prev">2,863,677원</div>
+            <div class="kpi-curr">5,100,842원</div>
+            <span class="tag-up">▲ 78.1%</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-lbl">ROAS</div>
+            <div class="kpi-prev">141%</div>
+            <div class="kpi-curr">156%</div>
+            <span class="tag-up">▲ 10.2%</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-lbl">순마진(공헌이익)</div>
+            <div class="kpi-prev">-352,247원</div>
+            <div class="kpi-curr">190,882원</div>
+            <span class="tag-up">▲ 흑자 전환</span>
+          </div>
+        </div>
+        <div class="budget-section">
+          <div class="budget-title">💰 광고 예산 배분 — 메타 vs 네이버</div>
+          <div class="budget-row"><div class="budget-period">4월 1~26일</div><div class="budget-bar-wrap"><div class="budget-bar-meta" style="width:100.0%"></div><div class="budget-bar-other" style="width:0.0%"></div></div><div class="budget-labels"><span class="budget-meta-lbl">메타 100.0%</span><span class="budget-other-lbl">네이버 0.0%</span></div></div>
+          <div class="budget-row"><div class="budget-period">3월 1~26일</div><div class="budget-bar-wrap"><div class="budget-bar-meta" style="width:100.0%"></div><div class="budget-bar-other" style="width:0.0%"></div></div><div class="budget-labels"><span class="budget-meta-lbl">메타 100.0%</span><span class="budget-other-lbl">네이버 0.0%</span></div></div>
+        </div>
+        <div class="chart-sep"></div><div class="chart-tab-bar"><button class="chart-tab2 active" onclick="switchChart2(0)">매출</button><button class="chart-tab2" onclick="switchChart2(1)">광고비</button><button class="chart-tab2" onclick="switchChart2(2)">ROAS</button></div><div class="chart-single2 active" id="c2t-0"><div class="chart-card"><div class="chart-lbl">페이드 채널 매출 — 일별</div><canvas id="cRevCum"></canvas></div></div><div class="chart-single2" id="c2t-1"><div class="chart-card"><div class="chart-lbl">총 광고비 — 일별</div><canvas id="cCostCum"></canvas></div></div><div class="chart-single2" id="c2t-2"><div class="chart-card"><div class="chart-lbl">ROAS (%) — 일별</div><canvas id="cRoasCum"></canvas></div></div>
+      </div>
+
+      
+      <div class="cmp-panel" id="panel-2">
+        <div class="vs-header">
+          <div class="vs-badge vs-curr">가정의달 04-20~04-26 (7일)</div>
+          <div class="vs-label">VS</div>
+          <div class="vs-badge vs-prev-wk">4주년 04-06~04-19 (14일)</div>
+        </div>
+        <p style="font-size:11px;color:#aaa;margin-bottom:16px;">※ 기간이 달라 KPI 박스는 일평균 기준 비교</p>
+        <div class="kpi-grid">
+          <div class="kpi-box">
+            <div class="kpi-lbl">일평균 매출</div>
+            <div class="kpi-prev">192,607원</div>
+            <div class="kpi-curr">136,171원</div>
+            <span class="tag-dn">▼ 29.3%</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-lbl">일평균 광고비</div>
+            <div class="kpi-prev">124,278원</div>
+            <div class="kpi-curr">46,740원</div>
+            <span class="tag-dn">▼ 62.4%</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-lbl">ROAS</div>
+            <div class="kpi-prev">155%</div>
+            <div class="kpi-curr">291%</div>
+            <span class="tag-up">▲ 88.0%</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-lbl">순마진 합계</div>
+            <div class="kpi-prev">-125,101원<br><small style="color:#ccc;font-size:10px;">14일 합계</small></div>
+            <div class="kpi-curr">198,712원</div>
+            <span class="tag-up">▲ 흑자 전환</span>
+          </div>
+        </div>
+        <div class="chart-sep"></div>
+        <div class="chart-tab-bar">
+          <button class="chart-tab3 active" onclick="switchChart3(0)">매출</button>
+          <button class="chart-tab3" onclick="switchChart3(1)">광고비</button>
+          <button class="chart-tab3" onclick="switchChart3(2)">ROAS</button>
+        </div>
+        <div class="chart-single3 active" id="c3t-0"><div class="chart-card"><div class="chart-lbl">일별 매출</div><canvas id="cRevEv"></canvas></div></div>
+        <div class="chart-single3"        id="c3t-1"><div class="chart-card"><div class="chart-lbl">일별 광고비</div><canvas id="cCostEv"></canvas></div></div>
+        <div class="chart-single3"        id="c3t-2"><div class="chart-card"><div class="chart-lbl">일별 ROAS (%)</div><canvas id="cRoasEv"></canvas></div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ 채널별 판매 ══ -->
+  <div class="ch-header">
+    <div class="ch-line"></div>
+    <div class="ch-title ch-dark">📦 채널별 판매</div>
+    <div class="ch-line"></div>
+  </div>
+  <div class="card">
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th>채널</th>
+          <th>전전주 매출</th><th>지난주 매출</th><th>변화</th>
+          <th>전전주 건</th><th>지난주 건</th>
+        </tr></thead>
+        <tbody><tr>
+              <td class="lc">cafe24</td>
+              <td class="nc prev">447,000원</td>
+              <td class="nc">479,600원</td>
+              <td><span class="tag-up">▲ 7.3%</span></td>
+              <td class="nc prev">3건</td>
+              <td class="nc">4건</td>
+            </tr><tr>
+              <td class="lc">smartstore</td>
+              <td class="nc prev">590,500원</td>
+              <td class="nc">473,600원</td>
+              <td><span class="tag-dn">▼ 19.8%</span></td>
+              <td class="nc prev">5건</td>
+              <td class="nc">4건</td>
+            </tr><tr>
+              <td class="lc">coupang</td>
+              <td class="nc prev">0원</td>
+              <td class="nc">0원</td>
+              <td><span class="tag-na">—</span></td>
+              <td class="nc prev">0건</td>
+              <td class="nc">0건</td>
+            </tr></tbody>
+      </table>
+    </div>
+    
+    <div style="margin-top:20px;border-top:1px solid #f3f4f6;padding-top:18px;">
+      <div style="font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#aaa;margin-bottom:12px;">일별 매출 &amp; 광고비 — 04-13~04-26</div>
+      <div id="chDailyLegend" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+        <button class="ch-leg-btn" data-dsidx="0" onclick="toggleChDataset(0)" style="display:flex;align-items:center;gap:6px;padding:4px 10px;border-radius:20px;border:1.5px solid rgba(99,102,241,0.5);background:#fff;font-size:12px;font-weight:600;color:#555;cursor:pointer;"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:rgba(99,102,241,0.35);border:1.5px solid #6366f1;"></span>cafe24 전전주</button>
+        <button class="ch-leg-btn" data-dsidx="2" onclick="toggleChDataset(2)" style="display:flex;align-items:center;gap:6px;padding:4px 10px;border-radius:20px;border:1.5px solid rgba(99,102,241,0.5);background:#fff;font-size:12px;font-weight:600;color:#555;cursor:pointer;"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#6366f1;"></span>cafe24 지난주</button>
+        <button class="ch-leg-btn" data-dsidx="1" onclick="toggleChDataset(1)" style="display:flex;align-items:center;gap:6px;padding:4px 10px;border-radius:20px;border:1.5px solid rgba(16,185,129,0.5);background:#fff;font-size:12px;font-weight:600;color:#555;cursor:pointer;"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:rgba(16,185,129,0.35);border:1.5px solid #10b981;"></span>스마트스토어 전전주</button>
+        <button class="ch-leg-btn" data-dsidx="3" onclick="toggleChDataset(3)" style="display:flex;align-items:center;gap:6px;padding:4px 10px;border-radius:20px;border:1.5px solid rgba(16,185,129,0.5);background:#fff;font-size:12px;font-weight:600;color:#555;cursor:pointer;"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#10b981;"></span>스마트스토어 지난주</button>
+        <button class="ch-leg-btn" data-dsidx="4" onclick="toggleChDataset(4)" style="display:flex;align-items:center;gap:6px;padding:4px 10px;border-radius:20px;border:1.5px solid rgba(245,158,11,0.5);background:#fff;font-size:12px;font-weight:600;color:#555;cursor:pointer;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#f59e0b;"></span>광고비 지난주</button>
+        <button class="ch-leg-btn" data-dsidx="5" onclick="toggleChDataset(5)" style="display:flex;align-items:center;gap:6px;padding:4px 10px;border-radius:20px;border:1.5px solid rgba(245,158,11,0.5);background:#fff;font-size:12px;font-weight:600;color:#555;cursor:pointer;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:rgba(245,158,11,0.45);"></span>광고비 전전주</button>
+      </div>
+      <div class="chart-card" style="box-shadow:none;border:1px solid #f1f5f9;padding:16px 20px;">
+        <canvas id="chDailyChart" style="max-height:300px;"></canvas>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- ══ 메타 분석 흐름 ══ -->
+  <div class="ch-header">
+    <div class="ch-line"></div>
+    <div class="ch-title ch-meta">🔵 메타 광고 → cafe24 (자사몰)</div>
+    <div class="ch-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="flow">
+
+      <div class="flow-item">
+        <div class="flow-left"><div class="flow-icon">❓</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-tag">WHY — 현상</div>
+          <div class="flow-title">자사몰 매출이 전전주 대비 ▲ 7.3% 변화했다</div>
+          <div class="flow-text">지난주 <strong>479,600원 / 4건</strong> &nbsp;←&nbsp; 전전주 447,000원 / 3건.<br>광고비가 ▼ 10.5% 줄었음에도 매출은 오히려 증가했다.</div>
+        </div>
+      </div>
+
+      <div class="flow-item">
+        <div class="flow-left"><div class="flow-icon">🤔</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-tag">WHAT — 질문</div>
+          <div class="flow-title">광고 효율은 어떻게 변화했는가?</div>
+          <ul class="flow-text">
+            <li>소재 효율이 개선 또는 악화됐다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flow-item">
+        <div class="flow-left"><div class="flow-icon">💡</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-tag">HYPOTHESIS — 추가 가설</div>
+          <div class="flow-title">외부 요인도 자사몰 전환에 기여했을 가능성</div>
+          <ul class="flow-text">
+            <li>💬 일요일 오전 카카오 플친 전송 (4/26)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flow-item">
+        <div class="flow-left"><div class="flow-icon">🔍</div></div>
+        <div class="flow-body">
+          <div class="flow-tag">HOW — 가설 좁히기</div>
+          <div class="flow-title">광고비 ▼ 12.4%에 매출 ▼ 8.1% — 소재 효율 데이터로 확인</div>
+
+          <div class="metric-block">
+            <div class="metric-block-title">볼륨 지표 — 비용 · 노출수 · 클릭수 · 구매수 · 매출액</div>
+            <table>
+              <thead><tr><th>지표</th><th>전전주 04-13~04-19</th><th>지난주 04-20~04-26</th><th>전전주 대비</th><th>전월 동기 대비<br><small style="font-weight:400;">(03-20~03-26)</small></th></tr></thead>
+              <tbody><tr><td>비용</td><td>306,669원</td><td>274,590원</td><td><span class="tag-up">▼ 10.5%</span></td><td><span class="tag-up">▼ 38.7%</span></td></tr><tr><td>노출수</td><td>22,400회</td><td>18,181회</td><td><span class="tag-dn">▼ 18.8%</span></td><td><span class="tag-dn">▼ 40.9%</span></td></tr><tr><td>클릭수</td><td>167회</td><td>220회</td><td><span class="tag-up">▲ 31.7%</span></td><td><span class="tag-dn">▼ 21.4%</span></td></tr><tr><td>구매수</td><td>0건</td><td>2건</td><td><span class="tag-neu">—</span></td><td><span class="tag-neu">▼ 0.0%</span></td></tr><tr class="row-hl"><td>매출액</td><td>447,000원</td><td>479,600원</td><td><span class="tag-up">▲ 7.3%</span></td><td><span class="tag-up">▲ 8.0%</span></td></tr></tbody>
+            </table>
+            <div style="margin-top:14px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+                <span style="font-size:11px;font-weight:700;color:#aaa;letter-spacing:1px;">CHART</span>
+                <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                  <button class="cr-chart-tab active" onclick="switchMetaVol(0)">비용</button>
+                  <button class="cr-chart-tab" onclick="switchMetaVol(1)">노출</button>
+                  <button class="cr-chart-tab" onclick="switchMetaVol(2)">클릭</button>
+                  <button class="cr-chart-tab" onclick="switchMetaVol(3)">구매</button>
+                  <button class="cr-chart-tab" onclick="switchMetaVol(4)">매출</button>
+                </div>
+              </div>
+              <div class="chart-card" style="box-shadow:none;border:1px solid #f1f5f9;padding:14px 18px;">
+                <canvas id="meta_vol_chart" style="max-height:200px;"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="metric-block">
+            <div class="metric-block-title">효율 지표 — CPM · CTR · CPA · ROAS</div>
+            <table>
+              <thead><tr><th>지표</th><th>전전주 04-13~04-19</th><th>지난주 04-20~04-26</th><th>전전주 대비</th><th>전월 동기 대비<br><small style="font-weight:400;">(03-20~03-26)</small></th></tr></thead>
+              <tbody><tr><td>CPM</td><td>13,690원</td><td>15,103원</td><td><span class="tag-dn">▲ 10.3%</span></td><td><span class="tag-dn">▲ 3.8%</span></td></tr><tr><td>CTR</td><td>0.75%</td><td>1.21%</td><td><span class="tag-up">▲ 62.3%</span></td><td><span class="tag-up">▲ 33.0%</span></td></tr><tr><td>CPA</td><td>—</td><td>137,295원</td><td><span class="tag-neu">—</span></td><td><span class="tag-up">▼ 38.7%</span></td></tr><tr class="row-hl"><td>ROAS</td><td>146%</td><td>175%</td><td><span class="tag-up">▲ 19.8%</span></td><td><span class="tag-neu">—</span></td></tr></tbody>
+            </table>
+            <div style="margin-top:14px;">
+              <div style="font-size:11px;font-weight:700;color:#aaa;letter-spacing:1px;margin-bottom:10px;">CHART — CPM·CPA (막대, 왼쪽 축) / CTR·ROAS (선, 오른쪽 축)</div>
+              <div class="chart-card" style="box-shadow:none;border:1px solid #f1f5f9;padding:14px 18px;">
+                <canvas id="meta_eff_chart" style="max-height:220px;"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="dark-box" style="margin-top:14px;">
+            <div class="d-label">결론</div>
+            <div class="d-row"><span class="d-icon">✅</span>광고비 ▼ 12.4%에 매출 ▼ 8.1% — 소재 효율 변화를 데이터로 확인하라.</div>
+            <div class="d-row"><span class="d-icon">⚠️</span>CPM ▲ 10.3% — 동일 예산으로 이전보다 노출이 적습니다.</div>
+          </div>
+          <p class="note">※ 볼륨 지표는 meta_ads 탭 기준 / ROAS는 cafe24 실매출 ÷ 메타 광고비</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ 메타 소재별 분석 ══ -->
+  <div class="ch-header">
+    <div class="ch-line"></div>
+    <div class="ch-title ch-meta">🎬 메타 소재별 분석 — 전전주 vs 지난주</div>
+    <div class="ch-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">EMS허리마사지기 주요 소재 성과 비교</div>
+
+    <div class="camp-tabs"><button class="camp-tab active" onclick="selectCamp(0)">260327_판매_캠페인_아버지 단독_EMS허리마사지기</button>
+      <button class="camp-tab" onclick="selectCamp(1)">260330_판매_캠페인_테스트_EMS허리마사지기</button>
+      <button class="camp-tab" onclick="selectCamp(2)">260416_판매_캠페인_테스트_EMS허리마사지기</button>
+      </div>
+    <div class="camp-panel active" id="camp-0">
+          <div class="camp-summary">
+            <div class="cr-subsec">볼륨 지표 (캠페인 합산)</div>
+            <div class="cr-kpi-row"><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">비용</div>
+          <div class="cr-kpi-prev">전전주 69,808원</div>
+          <div class="cr-kpi-curr">0원</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">노출</div>
+          <div class="cr-kpi-prev">전전주 4,346회</div>
+          <div class="cr-kpi-curr">0회</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">클릭</div>
+          <div class="cr-kpi-prev">전전주 24회</div>
+          <div class="cr-kpi-curr">0회</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">구매수</div>
+          <div class="cr-kpi-prev">전전주 0건</div>
+          <div class="cr-kpi-curr">0건</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">빈도</div>
+          <div class="cr-kpi-prev">전전주 1.16회</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div></div>
+            <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
+            <div class="cr-kpi-row cols4"><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">CPM</div>
+          <div class="cr-kpi-prev">전전주 16,062원</div>
+          <div class="cr-kpi-curr">0원</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">CTR</div>
+          <div class="cr-kpi-prev">전전주 0.6%</div>
+          <div class="cr-kpi-curr">0.0%</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">CPA</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div></div>
+            <button class="detail-toggle" id="camp-toggle-0" onclick="toggleDetail(0)">광고별 상세 보기 ▾</button>
+          </div>
+          <div class="camp-detail" id="camp-detail-0" style="display:none;">
+            <div class="cr-tabs"><button class="cr-tab active" onclick="selectAd(0,0)">EMS허리마사지기_영상_아버지 단독_일반</button>
+          </div>
+            <div class="cr-panel active" id="crp-0-0">
+              <div class="cr-subsec">볼륨 지표</div>
+              <div class="cr-kpi-row"><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">비용</div>
+          <div class="cr-kpi-prev">전전주 69,808원</div>
+          <div class="cr-kpi-curr">0원</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">노출</div>
+          <div class="cr-kpi-prev">전전주 4,346회</div>
+          <div class="cr-kpi-curr">0회</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">클릭</div>
+          <div class="cr-kpi-prev">전전주 24회</div>
+          <div class="cr-kpi-curr">0회</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">구매수</div>
+          <div class="cr-kpi-prev">전전주 0건</div>
+          <div class="cr-kpi-curr">0건</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">빈도</div>
+          <div class="cr-kpi-prev">전전주 1.16회</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
+              <div class="cr-kpi-row cols4"><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">CPM</div>
+          <div class="cr-kpi-prev">전전주 16,062원</div>
+          <div class="cr-kpi-curr">0원</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">CTR</div>
+          <div class="cr-kpi-prev">전전주 0.6%</div>
+          <div class="cr-kpi-curr">0.0%</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">CPA</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:18px;">기간별 성과 트렌드</div>
+        <div style="overflow-x:auto;">
+        <table class="cr-trend-tbl">
+          <thead><tr>
+            <th class="tr-lbl-hd">지표</th>
+            <th class="tr-hd">04-06~04-12</th>
+            <th class="tr-hd">04-13~04-19<br><span style="font-weight:400;color:#aaa">전전주</span></th>
+            <th class="tr-hd tr-curr">04-20~04-26<br><span style="font-weight:400;color:#94a3b8">지난주</span></th>
+            <th class="tr-hd tr-total">통합(02-19~)</th>
+          </tr></thead>
+          <tbody><tr><td class="tr-lbl">비용</td><td class="tr-cell">140,606원</td><td class="tr-cell">69,808원</td><td class="tr-cell" class="tr-good">0원</td><td class="tr-cell">394,695원</td></tr><tr><td class="tr-lbl">노출</td><td class="tr-cell">10,571</td><td class="tr-cell">4,346</td><td class="tr-cell" class="tr-bad">0</td><td class="tr-cell">28,949</td></tr><tr><td class="tr-lbl">구매수</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td><td class="tr-cell">2건</td></tr><tr><td class="tr-lbl">CPM</td><td class="tr-cell">13,301원</td><td class="tr-cell">16,063원</td><td class="tr-cell" class="tr-good">0원</td><td class="tr-cell">13,634원</td></tr><tr><td class="tr-lbl">CTR</td><td class="tr-cell">0.51%</td><td class="tr-cell">0.55%</td><td class="tr-cell" class="tr-bad">0.00%</td><td class="tr-cell">0.67%</td></tr><tr><td class="tr-lbl">CPA</td><td class="tr-cell">—</td><td class="tr-cell">—</td><td class="tr-cell">—</td><td class="tr-cell">197,348원</td></tr></tbody>
+        </table>
+        </div>
+        <p class="note" style="margin-top:6px;">※ 녹색=지난주 개선 / 빨간=지난주 악화 (전전주 대비 ±5% 기준) / 구매수: Cafe24 실구매 기준(col14)</p>
+              <div style="margin-top:20px;border-top:1px solid #f3f4f6;padding-top:16px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+                  <div class="cr-subsec" style="margin-bottom:0;">기간별 성과 트렌드</div>
+                  <div class="cr-chart-tabs" style="margin-bottom:0;" id="crtabs-c0-a0">
+                    <button class="cr-chart-tab active" onclick="switchTrend('crTrend-c0-a0','crtabs-c0-a0',0)">비용</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c0-a0','crtabs-c0-a0',1)">CPM</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c0-a0','crtabs-c0-a0',2)">CTR</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c0-a0','crtabs-c0-a0',3)">CPA</button>
+                  </div>
+                </div>
+                <div class="chart-card" style="box-shadow:none;border:1px solid #f1f5f9;padding:16px 20px;">
+                  <canvas id="crTrend-c0-a0" data-ad="EMS허리마사지기_영상_아버지 단독_일반" style="max-height:220px;"></canvas>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="camp-panel" id="camp-1">
+          <div class="camp-summary">
+            <div class="cr-subsec">볼륨 지표 (캠페인 합산)</div>
+            <div class="cr-kpi-row"><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">비용</div>
+          <div class="cr-kpi-prev">전전주 101,961원</div>
+          <div class="cr-kpi-curr">0원</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">노출</div>
+          <div class="cr-kpi-prev">전전주 7,046회</div>
+          <div class="cr-kpi-curr">0회</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">클릭</div>
+          <div class="cr-kpi-prev">전전주 29회</div>
+          <div class="cr-kpi-curr">0회</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">구매수</div>
+          <div class="cr-kpi-prev">전전주 0건</div>
+          <div class="cr-kpi-curr">0건</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">빈도</div>
+          <div class="cr-kpi-prev">전전주 1.13회</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div></div>
+            <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
+            <div class="cr-kpi-row cols4"><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">CPM</div>
+          <div class="cr-kpi-prev">전전주 14,470원</div>
+          <div class="cr-kpi-curr">0원</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">CTR</div>
+          <div class="cr-kpi-prev">전전주 0.4%</div>
+          <div class="cr-kpi-curr">0.0%</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">CPA</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div></div>
+            <button class="detail-toggle" id="camp-toggle-1" onclick="toggleDetail(1)">광고별 상세 보기 ▾</button>
+          </div>
+          <div class="camp-detail" id="camp-detail-1" style="display:none;">
+            <div class="cr-tabs"><button class="cr-tab active" onclick="selectAd(1,0)">EMS허리마사지기_영상_다시뻐근_일반_1</button>
+          <button class="cr-tab" onclick="selectAd(1,1)">EMS허리마사지기_영상_신규출시_일반</button>
+          <button class="cr-tab" onclick="selectAd(1,2)">EMS허리마사지기_영상_아버지단독_타겟변…</button>
+          <button class="cr-tab" onclick="selectAd(1,3)">EMS허리마사지기_영상_효도선물_일반</button>
+          </div>
+            <div class="cr-panel active" id="crp-1-0">
+              <div class="cr-subsec">볼륨 지표</div>
+              <div class="cr-kpi-row"><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">비용</div>
+          <div class="cr-kpi-prev">전전주 49,902원</div>
+          <div class="cr-kpi-curr">0원</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">노출</div>
+          <div class="cr-kpi-prev">전전주 2,899회</div>
+          <div class="cr-kpi-curr">0회</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">클릭</div>
+          <div class="cr-kpi-prev">전전주 13회</div>
+          <div class="cr-kpi-curr">0회</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">구매수</div>
+          <div class="cr-kpi-prev">전전주 0건</div>
+          <div class="cr-kpi-curr">0건</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">빈도</div>
+          <div class="cr-kpi-prev">전전주 1.15회</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
+              <div class="cr-kpi-row cols4"><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">CPM</div>
+          <div class="cr-kpi-prev">전전주 17,213원</div>
+          <div class="cr-kpi-curr">0원</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">CTR</div>
+          <div class="cr-kpi-prev">전전주 0.4%</div>
+          <div class="cr-kpi-curr">0.0%</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">CPA</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:18px;">기간별 성과 트렌드</div>
+        <div style="overflow-x:auto;">
+        <table class="cr-trend-tbl">
+          <thead><tr>
+            <th class="tr-lbl-hd">지표</th>
+            <th class="tr-hd">04-06~04-12</th>
+            <th class="tr-hd">04-13~04-19<br><span style="font-weight:400;color:#aaa">전전주</span></th>
+            <th class="tr-hd tr-curr">04-20~04-26<br><span style="font-weight:400;color:#94a3b8">지난주</span></th>
+            <th class="tr-hd tr-total">통합(02-19~)</th>
+          </tr></thead>
+          <tbody><tr><td class="tr-lbl">비용</td><td class="tr-cell">84,655원</td><td class="tr-cell">49,902원</td><td class="tr-cell" class="tr-good">0원</td><td class="tr-cell">134,557원</td></tr><tr><td class="tr-lbl">노출</td><td class="tr-cell">6,637</td><td class="tr-cell">2,899</td><td class="tr-cell" class="tr-bad">0</td><td class="tr-cell">9,536</td></tr><tr><td class="tr-lbl">구매수</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td></tr><tr><td class="tr-lbl">CPM</td><td class="tr-cell">12,755원</td><td class="tr-cell">17,214원</td><td class="tr-cell" class="tr-good">0원</td><td class="tr-cell">14,110원</td></tr><tr><td class="tr-lbl">CTR</td><td class="tr-cell">0.47%</td><td class="tr-cell">0.45%</td><td class="tr-cell" class="tr-bad">0.00%</td><td class="tr-cell">0.46%</td></tr><tr><td class="tr-lbl">CPA</td><td class="tr-cell">—</td><td class="tr-cell">—</td><td class="tr-cell">—</td><td class="tr-cell">—</td></tr></tbody>
+        </table>
+        </div>
+        <p class="note" style="margin-top:6px;">※ 녹색=지난주 개선 / 빨간=지난주 악화 (전전주 대비 ±5% 기준) / 구매수: Cafe24 실구매 기준(col14)</p>
+              <div style="margin-top:20px;border-top:1px solid #f3f4f6;padding-top:16px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+                  <div class="cr-subsec" style="margin-bottom:0;">기간별 성과 트렌드</div>
+                  <div class="cr-chart-tabs" style="margin-bottom:0;" id="crtabs-c1-a0">
+                    <button class="cr-chart-tab active" onclick="switchTrend('crTrend-c1-a0','crtabs-c1-a0',0)">비용</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c1-a0','crtabs-c1-a0',1)">CPM</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c1-a0','crtabs-c1-a0',2)">CTR</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c1-a0','crtabs-c1-a0',3)">CPA</button>
+                  </div>
+                </div>
+                <div class="chart-card" style="box-shadow:none;border:1px solid #f1f5f9;padding:16px 20px;">
+                  <canvas id="crTrend-c1-a0" data-ad="EMS허리마사지기_영상_다시뻐근_일반_1" style="max-height:220px;"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="cr-panel" id="crp-1-1">
+              <div class="cr-subsec">볼륨 지표</div>
+              <div class="cr-kpi-row"><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">비용</div>
+          <div class="cr-kpi-prev">전전주 0원</div>
+          <div class="cr-kpi-curr">0원</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">노출</div>
+          <div class="cr-kpi-prev">전전주 0회</div>
+          <div class="cr-kpi-curr">0회</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">클릭</div>
+          <div class="cr-kpi-prev">전전주 0회</div>
+          <div class="cr-kpi-curr">0회</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">구매수</div>
+          <div class="cr-kpi-prev">전전주 0건</div>
+          <div class="cr-kpi-curr">0건</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">빈도</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
+              <div class="cr-kpi-row cols4"><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">CPM</div>
+          <div class="cr-kpi-prev">전전주 0원</div>
+          <div class="cr-kpi-curr">0원</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">CTR</div>
+          <div class="cr-kpi-prev">전전주 0.0%</div>
+          <div class="cr-kpi-curr">0.0%</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">CPA</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:18px;">기간별 성과 트렌드</div>
+        <div style="overflow-x:auto;">
+        <table class="cr-trend-tbl">
+          <thead><tr>
+            <th class="tr-lbl-hd">지표</th>
+            <th class="tr-hd">04-06~04-12</th>
+            <th class="tr-hd">04-13~04-19<br><span style="font-weight:400;color:#aaa">전전주</span></th>
+            <th class="tr-hd tr-curr">04-20~04-26<br><span style="font-weight:400;color:#94a3b8">지난주</span></th>
+            <th class="tr-hd tr-total">통합(02-19~)</th>
+          </tr></thead>
+          <tbody><tr><td class="tr-lbl">비용</td><td class="tr-cell">69,750원</td><td class="tr-cell">0원</td><td class="tr-cell">0원</td><td class="tr-cell">275,617원</td></tr><tr><td class="tr-lbl">노출</td><td class="tr-cell">3,374</td><td class="tr-cell">0</td><td class="tr-cell">0</td><td class="tr-cell">14,085</td></tr><tr><td class="tr-lbl">구매수</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td><td class="tr-cell">1건</td></tr><tr><td class="tr-lbl">CPM</td><td class="tr-cell">20,673원</td><td class="tr-cell">0원</td><td class="tr-cell">0원</td><td class="tr-cell">19,568원</td></tr><tr><td class="tr-lbl">CTR</td><td class="tr-cell">0.80%</td><td class="tr-cell">0.00%</td><td class="tr-cell">0.00%</td><td class="tr-cell">1.14%</td></tr><tr><td class="tr-lbl">CPA</td><td class="tr-cell">—</td><td class="tr-cell">—</td><td class="tr-cell">—</td><td class="tr-cell">275,617원</td></tr></tbody>
+        </table>
+        </div>
+        <p class="note" style="margin-top:6px;">※ 녹색=지난주 개선 / 빨간=지난주 악화 (전전주 대비 ±5% 기준) / 구매수: Cafe24 실구매 기준(col14)</p>
+              <div style="margin-top:20px;border-top:1px solid #f3f4f6;padding-top:16px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+                  <div class="cr-subsec" style="margin-bottom:0;">기간별 성과 트렌드</div>
+                  <div class="cr-chart-tabs" style="margin-bottom:0;" id="crtabs-c1-a1">
+                    <button class="cr-chart-tab active" onclick="switchTrend('crTrend-c1-a1','crtabs-c1-a1',0)">비용</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c1-a1','crtabs-c1-a1',1)">CPM</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c1-a1','crtabs-c1-a1',2)">CTR</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c1-a1','crtabs-c1-a1',3)">CPA</button>
+                  </div>
+                </div>
+                <div class="chart-card" style="box-shadow:none;border:1px solid #f1f5f9;padding:16px 20px;">
+                  <canvas id="crTrend-c1-a1" data-ad="EMS허리마사지기_영상_신규출시_일반" style="max-height:220px;"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="cr-panel" id="crp-1-2">
+              <div class="cr-subsec">볼륨 지표</div>
+              <div class="cr-kpi-row"><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">비용</div>
+          <div class="cr-kpi-prev">전전주 0원</div>
+          <div class="cr-kpi-curr">0원</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">노출</div>
+          <div class="cr-kpi-prev">전전주 0회</div>
+          <div class="cr-kpi-curr">0회</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">클릭</div>
+          <div class="cr-kpi-prev">전전주 0회</div>
+          <div class="cr-kpi-curr">0회</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">구매수</div>
+          <div class="cr-kpi-prev">전전주 0건</div>
+          <div class="cr-kpi-curr">0건</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">빈도</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
+              <div class="cr-kpi-row cols4"><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">CPM</div>
+          <div class="cr-kpi-prev">전전주 0원</div>
+          <div class="cr-kpi-curr">0원</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">CTR</div>
+          <div class="cr-kpi-prev">전전주 0.0%</div>
+          <div class="cr-kpi-curr">0.0%</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">CPA</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:18px;">기간별 성과 트렌드</div>
+        <div style="overflow-x:auto;">
+        <table class="cr-trend-tbl">
+          <thead><tr>
+            <th class="tr-lbl-hd">지표</th>
+            <th class="tr-hd">04-06~04-12</th>
+            <th class="tr-hd">04-13~04-19<br><span style="font-weight:400;color:#aaa">전전주</span></th>
+            <th class="tr-hd tr-curr">04-20~04-26<br><span style="font-weight:400;color:#94a3b8">지난주</span></th>
+            <th class="tr-hd tr-total">통합(02-19~)</th>
+          </tr></thead>
+          <tbody><tr><td class="tr-lbl">비용</td><td class="tr-cell">51,048원</td><td class="tr-cell">0원</td><td class="tr-cell">0원</td><td class="tr-cell">94,674원</td></tr><tr><td class="tr-lbl">노출</td><td class="tr-cell">2,995</td><td class="tr-cell">0</td><td class="tr-cell">0</td><td class="tr-cell">6,238</td></tr><tr><td class="tr-lbl">구매수</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td></tr><tr><td class="tr-lbl">CPM</td><td class="tr-cell">17,044원</td><td class="tr-cell">0원</td><td class="tr-cell">0원</td><td class="tr-cell">15,177원</td></tr><tr><td class="tr-lbl">CTR</td><td class="tr-cell">0.40%</td><td class="tr-cell">0.00%</td><td class="tr-cell">0.00%</td><td class="tr-cell">0.53%</td></tr><tr><td class="tr-lbl">CPA</td><td class="tr-cell">—</td><td class="tr-cell">—</td><td class="tr-cell">—</td><td class="tr-cell">—</td></tr></tbody>
+        </table>
+        </div>
+        <p class="note" style="margin-top:6px;">※ 녹색=지난주 개선 / 빨간=지난주 악화 (전전주 대비 ±5% 기준) / 구매수: Cafe24 실구매 기준(col14)</p>
+              <div style="margin-top:20px;border-top:1px solid #f3f4f6;padding-top:16px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+                  <div class="cr-subsec" style="margin-bottom:0;">기간별 성과 트렌드</div>
+                  <div class="cr-chart-tabs" style="margin-bottom:0;" id="crtabs-c1-a2">
+                    <button class="cr-chart-tab active" onclick="switchTrend('crTrend-c1-a2','crtabs-c1-a2',0)">비용</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c1-a2','crtabs-c1-a2',1)">CPM</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c1-a2','crtabs-c1-a2',2)">CTR</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c1-a2','crtabs-c1-a2',3)">CPA</button>
+                  </div>
+                </div>
+                <div class="chart-card" style="box-shadow:none;border:1px solid #f1f5f9;padding:16px 20px;">
+                  <canvas id="crTrend-c1-a2" data-ad="EMS허리마사지기_영상_아버지단독_타겟변경_일반" style="max-height:220px;"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="cr-panel" id="crp-1-3">
+              <div class="cr-subsec">볼륨 지표</div>
+              <div class="cr-kpi-row"><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">비용</div>
+          <div class="cr-kpi-prev">전전주 52,059원</div>
+          <div class="cr-kpi-curr">0원</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">노출</div>
+          <div class="cr-kpi-prev">전전주 4,147회</div>
+          <div class="cr-kpi-curr">0회</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">클릭</div>
+          <div class="cr-kpi-prev">전전주 16회</div>
+          <div class="cr-kpi-curr">0회</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">구매수</div>
+          <div class="cr-kpi-prev">전전주 0건</div>
+          <div class="cr-kpi-curr">0건</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">빈도</div>
+          <div class="cr-kpi-prev">전전주 1.11회</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
+              <div class="cr-kpi-row cols4"><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">CPM</div>
+          <div class="cr-kpi-prev">전전주 12,553원</div>
+          <div class="cr-kpi-curr">0원</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">CTR</div>
+          <div class="cr-kpi-prev">전전주 0.4%</div>
+          <div class="cr-kpi-curr">0.0%</div>
+          <span class="tag-dn">▼ 100.0%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">CPA</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:18px;">기간별 성과 트렌드</div>
+        <div style="overflow-x:auto;">
+        <table class="cr-trend-tbl">
+          <thead><tr>
+            <th class="tr-lbl-hd">지표</th>
+            <th class="tr-hd">04-06~04-12</th>
+            <th class="tr-hd">04-13~04-19<br><span style="font-weight:400;color:#aaa">전전주</span></th>
+            <th class="tr-hd tr-curr">04-20~04-26<br><span style="font-weight:400;color:#94a3b8">지난주</span></th>
+            <th class="tr-hd tr-total">통합(02-19~)</th>
+          </tr></thead>
+          <tbody><tr><td class="tr-lbl">비용</td><td class="tr-cell">142,032원</td><td class="tr-cell">52,059원</td><td class="tr-cell" class="tr-good">0원</td><td class="tr-cell">417,376원</td></tr><tr><td class="tr-lbl">노출</td><td class="tr-cell">10,748</td><td class="tr-cell">4,147</td><td class="tr-cell" class="tr-bad">0</td><td class="tr-cell">30,459</td></tr><tr><td class="tr-lbl">구매수</td><td class="tr-cell">1건</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td><td class="tr-cell">1건</td></tr><tr><td class="tr-lbl">CPM</td><td class="tr-cell">13,215원</td><td class="tr-cell">12,553원</td><td class="tr-cell" class="tr-good">0원</td><td class="tr-cell">13,703원</td></tr><tr><td class="tr-lbl">CTR</td><td class="tr-cell">0.61%</td><td class="tr-cell">0.39%</td><td class="tr-cell" class="tr-bad">0.00%</td><td class="tr-cell">0.78%</td></tr><tr><td class="tr-lbl">CPA</td><td class="tr-cell">142,032원</td><td class="tr-cell">—</td><td class="tr-cell">—</td><td class="tr-cell">417,376원</td></tr></tbody>
+        </table>
+        </div>
+        <p class="note" style="margin-top:6px;">※ 녹색=지난주 개선 / 빨간=지난주 악화 (전전주 대비 ±5% 기준) / 구매수: Cafe24 실구매 기준(col14)</p>
+              <div style="margin-top:20px;border-top:1px solid #f3f4f6;padding-top:16px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+                  <div class="cr-subsec" style="margin-bottom:0;">기간별 성과 트렌드</div>
+                  <div class="cr-chart-tabs" style="margin-bottom:0;" id="crtabs-c1-a3">
+                    <button class="cr-chart-tab active" onclick="switchTrend('crTrend-c1-a3','crtabs-c1-a3',0)">비용</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c1-a3','crtabs-c1-a3',1)">CPM</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c1-a3','crtabs-c1-a3',2)">CTR</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c1-a3','crtabs-c1-a3',3)">CPA</button>
+                  </div>
+                </div>
+                <div class="chart-card" style="box-shadow:none;border:1px solid #f1f5f9;padding:16px 20px;">
+                  <canvas id="crTrend-c1-a3" data-ad="EMS허리마사지기_영상_효도선물_일반" style="max-height:220px;"></canvas>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="camp-panel" id="camp-2">
+          <div class="camp-summary">
+            <div class="cr-subsec">볼륨 지표 (캠페인 합산)</div>
+            <div class="cr-kpi-row"><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">비용</div>
+          <div class="cr-kpi-prev">전전주 134,900원</div>
+          <div class="cr-kpi-curr">274,590원</div>
+          <span class="tag-up">▲ 103.6%</span>
+        </div><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">노출</div>
+          <div class="cr-kpi-prev">전전주 11,008회</div>
+          <div class="cr-kpi-curr">18,181회</div>
+          <span class="tag-up">▲ 65.2%</span>
+        </div><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">클릭</div>
+          <div class="cr-kpi-prev">전전주 114회</div>
+          <div class="cr-kpi-curr">220회</div>
+          <span class="tag-up">▲ 93.0%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">구매수</div>
+          <div class="cr-kpi-prev">전전주 0건</div>
+          <div class="cr-kpi-curr">2건</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">빈도</div>
+          <div class="cr-kpi-prev">전전주 1.10회</div>
+          <div class="cr-kpi-curr">1.15회</div>
+          <span class="tag-up">▲ 4.5%</span>
+        </div></div>
+            <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
+            <div class="cr-kpi-row cols4"><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">CPM</div>
+          <div class="cr-kpi-prev">전전주 12,254원</div>
+          <div class="cr-kpi-curr">15,103원</div>
+          <span class="tag-up">▲ 23.2%</span>
+        </div><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">CTR</div>
+          <div class="cr-kpi-prev">전전주 1.0%</div>
+          <div class="cr-kpi-curr">1.2%</div>
+          <span class="tag-up">▲ 16.8%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">CPA</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">137,295원</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">87.3%</div>
+          <span class="tag-na">—</span>
+        </div></div>
+            <button class="detail-toggle" id="camp-toggle-2" onclick="toggleDetail(2)">광고별 상세 보기 ▾</button>
+          </div>
+          <div class="camp-detail" id="camp-detail-2" style="display:none;">
+            <div class="cr-tabs"><button class="cr-tab active" onclick="selectAd(2,0)">EMS허리마사지기_영상_물리치료 1/10…</button>
+          <button class="cr-tab" onclick="selectAd(2,1)">EMS허리마사지기_영상_신규출시_일반_3</button>
+          <button class="cr-tab" onclick="selectAd(2,2)">EMS허리마사지기_영상_집에서 바로 풀립…</button>
+          <button class="cr-tab" onclick="selectAd(2,3)">EMS허리마사지기_영상_허리 속부터_일반…</button>
+          </div>
+            <div class="cr-panel active" id="crp-2-0">
+              <div class="cr-subsec">볼륨 지표</div>
+              <div class="cr-kpi-row"><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">비용</div>
+          <div class="cr-kpi-prev">전전주 14,627원</div>
+          <div class="cr-kpi-curr">31,317원</div>
+          <span class="tag-up">▲ 114.1%</span>
+        </div><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">노출</div>
+          <div class="cr-kpi-prev">전전주 1,970회</div>
+          <div class="cr-kpi-curr">2,088회</div>
+          <span class="tag-up">▲ 6.0%</span>
+        </div><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">클릭</div>
+          <div class="cr-kpi-prev">전전주 13회</div>
+          <div class="cr-kpi-curr">25회</div>
+          <span class="tag-up">▲ 92.3%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">구매수</div>
+          <div class="cr-kpi-prev">전전주 0건</div>
+          <div class="cr-kpi-curr">1건</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">빈도</div>
+          <div class="cr-kpi-prev">전전주 1.08회</div>
+          <div class="cr-kpi-curr">1.14회</div>
+          <span class="tag-up">▲ 5.6%</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
+              <div class="cr-kpi-row cols4"><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">CPM</div>
+          <div class="cr-kpi-prev">전전주 7,424원</div>
+          <div class="cr-kpi-curr">14,998원</div>
+          <span class="tag-up">▲ 102.0%</span>
+        </div><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">CTR</div>
+          <div class="cr-kpi-prev">전전주 0.7%</div>
+          <div class="cr-kpi-curr">1.2%</div>
+          <span class="tag-up">▲ 81.4%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">CPA</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">31,317원</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">382.9%</div>
+          <span class="tag-na">—</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:18px;">기간별 성과 트렌드</div>
+        <div style="overflow-x:auto;">
+        <table class="cr-trend-tbl">
+          <thead><tr>
+            <th class="tr-lbl-hd">지표</th>
+            <th class="tr-hd">04-06~04-12</th>
+            <th class="tr-hd">04-13~04-19<br><span style="font-weight:400;color:#aaa">전전주</span></th>
+            <th class="tr-hd tr-curr">04-20~04-26<br><span style="font-weight:400;color:#94a3b8">지난주</span></th>
+            <th class="tr-hd tr-total">통합(02-19~)</th>
+          </tr></thead>
+          <tbody><tr><td class="tr-lbl">비용</td><td class="tr-cell">0원</td><td class="tr-cell">14,627원</td><td class="tr-cell" class="tr-bad">31,317원</td><td class="tr-cell">45,944원</td></tr><tr><td class="tr-lbl">노출</td><td class="tr-cell">0</td><td class="tr-cell">1,970</td><td class="tr-cell" class="tr-good">2,088</td><td class="tr-cell">4,058</td></tr><tr><td class="tr-lbl">구매수</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td><td class="tr-cell">1건</td><td class="tr-cell">1건</td></tr><tr><td class="tr-lbl">CPM</td><td class="tr-cell">0원</td><td class="tr-cell">7,425원</td><td class="tr-cell" class="tr-bad">14,999원</td><td class="tr-cell">11,322원</td></tr><tr><td class="tr-lbl">CTR</td><td class="tr-cell">0.00%</td><td class="tr-cell">0.66%</td><td class="tr-cell" class="tr-good">1.20%</td><td class="tr-cell">0.94%</td></tr><tr><td class="tr-lbl">CPA</td><td class="tr-cell">—</td><td class="tr-cell">—</td><td class="tr-cell">31,317원</td><td class="tr-cell">45,944원</td></tr></tbody>
+        </table>
+        </div>
+        <p class="note" style="margin-top:6px;">※ 녹색=지난주 개선 / 빨간=지난주 악화 (전전주 대비 ±5% 기준) / 구매수: Cafe24 실구매 기준(col14)</p>
+              <div style="margin-top:20px;border-top:1px solid #f3f4f6;padding-top:16px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+                  <div class="cr-subsec" style="margin-bottom:0;">기간별 성과 트렌드</div>
+                  <div class="cr-chart-tabs" style="margin-bottom:0;" id="crtabs-c2-a0">
+                    <button class="cr-chart-tab active" onclick="switchTrend('crTrend-c2-a0','crtabs-c2-a0',0)">비용</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c2-a0','crtabs-c2-a0',1)">CPM</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c2-a0','crtabs-c2-a0',2)">CTR</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c2-a0','crtabs-c2-a0',3)">CPA</button>
+                  </div>
+                </div>
+                <div class="chart-card" style="box-shadow:none;border:1px solid #f1f5f9;padding:16px 20px;">
+                  <canvas id="crTrend-c2-a0" data-ad="EMS허리마사지기_영상_물리치료 1/10_일반_4" style="max-height:220px;"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="cr-panel" id="crp-2-1">
+              <div class="cr-subsec">볼륨 지표</div>
+              <div class="cr-kpi-row"><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">비용</div>
+          <div class="cr-kpi-prev">전전주 18,964원</div>
+          <div class="cr-kpi-curr">3,442원</div>
+          <span class="tag-dn">▼ 81.8%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">노출</div>
+          <div class="cr-kpi-prev">전전주 1,654회</div>
+          <div class="cr-kpi-curr">311회</div>
+          <span class="tag-dn">▼ 81.2%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">클릭</div>
+          <div class="cr-kpi-prev">전전주 12회</div>
+          <div class="cr-kpi-curr">3회</div>
+          <span class="tag-dn">▼ 75.0%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">구매수</div>
+          <div class="cr-kpi-prev">전전주 0건</div>
+          <div class="cr-kpi-curr">0건</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">빈도</div>
+          <div class="cr-kpi-prev">전전주 1.08회</div>
+          <div class="cr-kpi-curr">1.02회</div>
+          <span class="tag-dn">▼ 5.6%</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
+              <div class="cr-kpi-row cols4"><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">CPM</div>
+          <div class="cr-kpi-prev">전전주 11,465원</div>
+          <div class="cr-kpi-curr">11,067원</div>
+          <span class="tag-dn">▼ 3.5%</span>
+        </div><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">CTR</div>
+          <div class="cr-kpi-prev">전전주 0.7%</div>
+          <div class="cr-kpi-curr">1.0%</div>
+          <span class="tag-up">▲ 33.0%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">CPA</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:18px;">기간별 성과 트렌드</div>
+        <div style="overflow-x:auto;">
+        <table class="cr-trend-tbl">
+          <thead><tr>
+            <th class="tr-lbl-hd">지표</th>
+            <th class="tr-hd">04-06~04-12</th>
+            <th class="tr-hd">04-13~04-19<br><span style="font-weight:400;color:#aaa">전전주</span></th>
+            <th class="tr-hd tr-curr">04-20~04-26<br><span style="font-weight:400;color:#94a3b8">지난주</span></th>
+            <th class="tr-hd tr-total">통합(02-19~)</th>
+          </tr></thead>
+          <tbody><tr><td class="tr-lbl">비용</td><td class="tr-cell">0원</td><td class="tr-cell">18,964원</td><td class="tr-cell" class="tr-good">3,442원</td><td class="tr-cell">22,406원</td></tr><tr><td class="tr-lbl">노출</td><td class="tr-cell">0</td><td class="tr-cell">1,654</td><td class="tr-cell" class="tr-bad">311</td><td class="tr-cell">1,965</td></tr><tr><td class="tr-lbl">구매수</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td></tr><tr><td class="tr-lbl">CPM</td><td class="tr-cell">0원</td><td class="tr-cell">11,466원</td><td class="tr-cell">11,068원</td><td class="tr-cell">11,403원</td></tr><tr><td class="tr-lbl">CTR</td><td class="tr-cell">0.00%</td><td class="tr-cell">0.73%</td><td class="tr-cell" class="tr-good">0.96%</td><td class="tr-cell">0.76%</td></tr><tr><td class="tr-lbl">CPA</td><td class="tr-cell">—</td><td class="tr-cell">—</td><td class="tr-cell">—</td><td class="tr-cell">—</td></tr></tbody>
+        </table>
+        </div>
+        <p class="note" style="margin-top:6px;">※ 녹색=지난주 개선 / 빨간=지난주 악화 (전전주 대비 ±5% 기준) / 구매수: Cafe24 실구매 기준(col14)</p>
+              <div style="margin-top:20px;border-top:1px solid #f3f4f6;padding-top:16px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+                  <div class="cr-subsec" style="margin-bottom:0;">기간별 성과 트렌드</div>
+                  <div class="cr-chart-tabs" style="margin-bottom:0;" id="crtabs-c2-a1">
+                    <button class="cr-chart-tab active" onclick="switchTrend('crTrend-c2-a1','crtabs-c2-a1',0)">비용</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c2-a1','crtabs-c2-a1',1)">CPM</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c2-a1','crtabs-c2-a1',2)">CTR</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c2-a1','crtabs-c2-a1',3)">CPA</button>
+                  </div>
+                </div>
+                <div class="chart-card" style="box-shadow:none;border:1px solid #f1f5f9;padding:16px 20px;">
+                  <canvas id="crTrend-c2-a1" data-ad="EMS허리마사지기_영상_신규출시_일반_3" style="max-height:220px;"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="cr-panel" id="crp-2-2">
+              <div class="cr-subsec">볼륨 지표</div>
+              <div class="cr-kpi-row"><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">비용</div>
+          <div class="cr-kpi-prev">전전주 78,977원</div>
+          <div class="cr-kpi-curr">225,120원</div>
+          <span class="tag-up">▲ 185.0%</span>
+        </div><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">노출</div>
+          <div class="cr-kpi-prev">전전주 5,376회</div>
+          <div class="cr-kpi-curr">14,691회</div>
+          <span class="tag-up">▲ 173.3%</span>
+        </div><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">클릭</div>
+          <div class="cr-kpi-prev">전전주 70회</div>
+          <div class="cr-kpi-curr">180회</div>
+          <span class="tag-up">▲ 157.1%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">구매수</div>
+          <div class="cr-kpi-prev">전전주 0건</div>
+          <div class="cr-kpi-curr">1건</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">빈도</div>
+          <div class="cr-kpi-prev">전전주 1.11회</div>
+          <div class="cr-kpi-curr">1.16회</div>
+          <span class="tag-up">▲ 4.5%</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
+              <div class="cr-kpi-row cols4"><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">CPM</div>
+          <div class="cr-kpi-prev">전전주 14,690원</div>
+          <div class="cr-kpi-curr">15,323원</div>
+          <span class="tag-up">▲ 4.3%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">CTR</div>
+          <div class="cr-kpi-prev">전전주 1.3%</div>
+          <div class="cr-kpi-curr">1.2%</div>
+          <span class="tag-dn">▼ 5.9%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">CPA</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">225,120원</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">53.3%</div>
+          <span class="tag-na">—</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:18px;">기간별 성과 트렌드</div>
+        <div style="overflow-x:auto;">
+        <table class="cr-trend-tbl">
+          <thead><tr>
+            <th class="tr-lbl-hd">지표</th>
+            <th class="tr-hd">04-06~04-12</th>
+            <th class="tr-hd">04-13~04-19<br><span style="font-weight:400;color:#aaa">전전주</span></th>
+            <th class="tr-hd tr-curr">04-20~04-26<br><span style="font-weight:400;color:#94a3b8">지난주</span></th>
+            <th class="tr-hd tr-total">통합(02-19~)</th>
+          </tr></thead>
+          <tbody><tr><td class="tr-lbl">비용</td><td class="tr-cell">0원</td><td class="tr-cell">78,977원</td><td class="tr-cell" class="tr-bad">225,120원</td><td class="tr-cell">304,097원</td></tr><tr><td class="tr-lbl">노출</td><td class="tr-cell">0</td><td class="tr-cell">5,376</td><td class="tr-cell" class="tr-good">14,691</td><td class="tr-cell">20,067</td></tr><tr><td class="tr-lbl">구매수</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td><td class="tr-cell">1건</td><td class="tr-cell">1건</td></tr><tr><td class="tr-lbl">CPM</td><td class="tr-cell">0원</td><td class="tr-cell">14,691원</td><td class="tr-cell">15,324원</td><td class="tr-cell">15,154원</td></tr><tr><td class="tr-lbl">CTR</td><td class="tr-cell">0.00%</td><td class="tr-cell">1.30%</td><td class="tr-cell" class="tr-bad">1.23%</td><td class="tr-cell">1.25%</td></tr><tr><td class="tr-lbl">CPA</td><td class="tr-cell">—</td><td class="tr-cell">—</td><td class="tr-cell">225,120원</td><td class="tr-cell">304,097원</td></tr></tbody>
+        </table>
+        </div>
+        <p class="note" style="margin-top:6px;">※ 녹색=지난주 개선 / 빨간=지난주 악화 (전전주 대비 ±5% 기준) / 구매수: Cafe24 실구매 기준(col14)</p>
+              <div style="margin-top:20px;border-top:1px solid #f3f4f6;padding-top:16px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+                  <div class="cr-subsec" style="margin-bottom:0;">기간별 성과 트렌드</div>
+                  <div class="cr-chart-tabs" style="margin-bottom:0;" id="crtabs-c2-a2">
+                    <button class="cr-chart-tab active" onclick="switchTrend('crTrend-c2-a2','crtabs-c2-a2',0)">비용</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c2-a2','crtabs-c2-a2',1)">CPM</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c2-a2','crtabs-c2-a2',2)">CTR</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c2-a2','crtabs-c2-a2',3)">CPA</button>
+                  </div>
+                </div>
+                <div class="chart-card" style="box-shadow:none;border:1px solid #f1f5f9;padding:16px 20px;">
+                  <canvas id="crTrend-c2-a2" data-ad="EMS허리마사지기_영상_집에서 바로 풀립니다._일반_1" style="max-height:220px;"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="cr-panel" id="crp-2-3">
+              <div class="cr-subsec">볼륨 지표</div>
+              <div class="cr-kpi-row"><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">비용</div>
+          <div class="cr-kpi-prev">전전주 22,332원</div>
+          <div class="cr-kpi-curr">14,711원</div>
+          <span class="tag-dn">▼ 34.1%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">노출</div>
+          <div class="cr-kpi-prev">전전주 2,008회</div>
+          <div class="cr-kpi-curr">1,091회</div>
+          <span class="tag-dn">▼ 45.7%</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">클릭</div>
+          <div class="cr-kpi-prev">전전주 19회</div>
+          <div class="cr-kpi-curr">12회</div>
+          <span class="tag-dn">▼ 36.8%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">구매수</div>
+          <div class="cr-kpi-prev">전전주 0건</div>
+          <div class="cr-kpi-curr">0건</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">빈도</div>
+          <div class="cr-kpi-prev">전전주 1.10회</div>
+          <div class="cr-kpi-curr">1.14회</div>
+          <span class="tag-up">▲ 3.6%</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:16px;">효율 지표</div>
+              <div class="cr-kpi-row cols4"><div class="cr-kpi-box dn">
+          <div class="cr-kpi-lbl">CPM</div>
+          <div class="cr-kpi-prev">전전주 11,121원</div>
+          <div class="cr-kpi-curr">13,483원</div>
+          <span class="tag-up">▲ 21.2%</span>
+        </div><div class="cr-kpi-box up">
+          <div class="cr-kpi-lbl">CTR</div>
+          <div class="cr-kpi-prev">전전주 0.9%</div>
+          <div class="cr-kpi-curr">1.1%</div>
+          <span class="tag-up">▲ 16.2%</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">CPA</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div><div class="cr-kpi-box none">
+          <div class="cr-kpi-lbl">ROAS</div>
+          <div class="cr-kpi-prev">전전주 —</div>
+          <div class="cr-kpi-curr">—</div>
+          <span class="tag-na">—</span>
+        </div></div>
+              <div class="cr-subsec" style="margin-top:18px;">기간별 성과 트렌드</div>
+        <div style="overflow-x:auto;">
+        <table class="cr-trend-tbl">
+          <thead><tr>
+            <th class="tr-lbl-hd">지표</th>
+            <th class="tr-hd">04-06~04-12</th>
+            <th class="tr-hd">04-13~04-19<br><span style="font-weight:400;color:#aaa">전전주</span></th>
+            <th class="tr-hd tr-curr">04-20~04-26<br><span style="font-weight:400;color:#94a3b8">지난주</span></th>
+            <th class="tr-hd tr-total">통합(02-19~)</th>
+          </tr></thead>
+          <tbody><tr><td class="tr-lbl">비용</td><td class="tr-cell">0원</td><td class="tr-cell">22,332원</td><td class="tr-cell" class="tr-good">14,711원</td><td class="tr-cell">37,043원</td></tr><tr><td class="tr-lbl">노출</td><td class="tr-cell">0</td><td class="tr-cell">2,008</td><td class="tr-cell" class="tr-bad">1,091</td><td class="tr-cell">3,099</td></tr><tr><td class="tr-lbl">구매수</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td><td class="tr-cell">0건</td></tr><tr><td class="tr-lbl">CPM</td><td class="tr-cell">0원</td><td class="tr-cell">11,122원</td><td class="tr-cell" class="tr-bad">13,484원</td><td class="tr-cell">11,953원</td></tr><tr><td class="tr-lbl">CTR</td><td class="tr-cell">0.00%</td><td class="tr-cell">0.95%</td><td class="tr-cell" class="tr-good">1.10%</td><td class="tr-cell">1.00%</td></tr><tr><td class="tr-lbl">CPA</td><td class="tr-cell">—</td><td class="tr-cell">—</td><td class="tr-cell">—</td><td class="tr-cell">—</td></tr></tbody>
+        </table>
+        </div>
+        <p class="note" style="margin-top:6px;">※ 녹색=지난주 개선 / 빨간=지난주 악화 (전전주 대비 ±5% 기준) / 구매수: Cafe24 실구매 기준(col14)</p>
+              <div style="margin-top:20px;border-top:1px solid #f3f4f6;padding-top:16px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+                  <div class="cr-subsec" style="margin-bottom:0;">기간별 성과 트렌드</div>
+                  <div class="cr-chart-tabs" style="margin-bottom:0;" id="crtabs-c2-a3">
+                    <button class="cr-chart-tab active" onclick="switchTrend('crTrend-c2-a3','crtabs-c2-a3',0)">비용</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c2-a3','crtabs-c2-a3',1)">CPM</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c2-a3','crtabs-c2-a3',2)">CTR</button>
+                    <button class="cr-chart-tab" onclick="switchTrend('crTrend-c2-a3','crtabs-c2-a3',3)">CPA</button>
+                  </div>
+                </div>
+                <div class="chart-card" style="box-shadow:none;border:1px solid #f1f5f9;padding:16px 20px;">
+                  <canvas id="crTrend-c2-a3" data-ad="EMS허리마사지기_영상_허리 속부터_일반_2" style="max-height:220px;"></canvas>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+
+    <div class="dark-box" style="margin-top:16px;">
+      <div class="d-label">소재별 결론</div>
+      <div class="d-row"><span class="d-icon">✅</span><strong>EMS허리마사지기_영상_물리치료 1/10_일반_4</strong><br><span style="font-size:12px;color:rgba(255,255,255,.55);">비용 31,317원 · CPM 14,999원 · CTR 1.20% · CPA 31,317원</span></div>
+      <div class="d-row"><span class="d-icon">⚠️</span><strong>EMS허리마사지기_영상_신규출시_일반_3</strong><br><span style="font-size:12px;color:rgba(255,255,255,.55);">비용 3,442원 · CPM 11,068원 · CTR 0.96% · 구매 0건</span></div>
+      <div class="d-row"><span class="d-icon">⚠️</span><strong>EMS허리마사지기_영상_집에서 바로 풀립니다._일반_1</strong><br><span style="font-size:12px;color:rgba(255,255,255,.55);">비용 225,120원 · CPM 15,324원 · CTR 1.23% · CPA 225,120원 (목표 초과)</span></div>
+      <div class="d-row"><span class="d-icon">⚠️</span><strong>EMS허리마사지기_영상_허리 속부터_일반_2</strong><br><span style="font-size:12px;color:rgba(255,255,255,.55);">비용 14,711원 · CPM 13,484원 · CTR 1.10% · 구매 0건</span></div>
+      
+    </div>
+    <p class="note" style="margin-top:10px;">※ 구매수는 Cafe24 실구매 기준(meta_ads col14) / meta_ads 탭 광고이름(col2) 기준 집계</p>
+
+    <!-- ⚡ 이번 주 액션 -->
+    <div style="margin-top:20px;background:#fff8f0;border:1.5px solid #fbd38d;border-radius:12px;padding:18px 22px;">
+      <div style="font-size:13px;font-weight:800;color:#d97706;letter-spacing:0.5px;margin-bottom:14px;">⚡ 이번 주 액션</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:13px;color:#333;line-height:1.6;">
+        <div style="display:flex;align-items:flex-start;gap:10px;">
+          <span style="background:#fee2e2;color:#b91c1c;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;white-space:nowrap;">🔴 OFF</span>
+          <span><strong>집에서 바로 풀립니다.</strong> — CPA 225,120원, 목표 대비 초과로 중단</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px;">
+          <span style="background:#dcfce7;color:#15803d;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;white-space:nowrap;">✅ 완료</span>
+          <span><strong>예산 증액 수락</strong> — 집에서 바로 풀립니다. 일반 58만원 증액 집행됨</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px;">
+          <span style="background:#eff6ff;color:#1d4ed8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;white-space:nowrap;">🎯 검토</span>
+          <span><strong>소재 우선순위</strong> — <span style="background:#e0e7ff;color:#4338ca;border-radius:4px;padding:1px 6px;font-size:11px;">1순위</span> 물리치료 1/10 &nbsp;<span style="background:#fef3c7;color:#92400e;border-radius:4px;padding:1px 6px;font-size:11px;">2순위</span> 허리 속부터 &nbsp;<span style="background:#f1f5f9;color:#475569;border-radius:4px;padding:1px 6px;font-size:11px;">3순위</span> 신규출시</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px;">
+          <span style="background:#fdf4ff;color:#7e22ce;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;white-space:nowrap;">🌸 테스트</span>
+          <span><strong>가정의달 관심사 기반 소재</strong> — 신규 소재 테스트 예정</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const DAY_LABELS = ['월','화','수','목','금','토','일'];
+
+function makeChart(id, wk3, prev, last, isCurr) {
+  const datasets = [];
+  if (wk3) datasets.push({ label:'3주전 04-06~04-12', data:wk3, borderColor:'#94a3b8', backgroundColor:'transparent', borderWidth:1.5, pointRadius:3, pointBackgroundColor:'#94a3b8', tension:0.35, borderDash:[2,4] });
+  datasets.push({ label:'전전주 04-13~04-19', data:prev, borderColor:'#34d399', backgroundColor:'transparent', borderWidth:1.5, pointRadius:3, pointBackgroundColor:'#34d399', tension:0.35, borderDash:[4,3] });
+  datasets.push({ label:'지난주 04-20~04-26', data:last, borderColor:'#1a1a2e', backgroundColor:'rgba(26,26,46,.05)', borderWidth:2.5, pointRadius:4, pointBackgroundColor:'#1a1a2e', tension:0.35 });
+  new Chart(document.getElementById(id), {
+    type: 'line',
+    data: { labels: DAY_LABELS, datasets },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position:'bottom', labels:{ boxWidth:10, font:{size:11}, color:'#888', padding:14 } },
+        tooltip: { backgroundColor:'#1a1a2e', titleFont:{size:11}, bodyFont:{size:12},
+          callbacks: { label: ctx => ' '+ctx.dataset.label+': '+(isCurr ? ctx.parsed.y.toLocaleString('ko-KR')+'원' : ctx.parsed.y+'%') } }
+      },
+      scales: {
+        y: { beginAtZero:false, grid:{color:'#f5f5f5'}, ticks:{font:{size:11},color:'#bbb',callback:v=>isCurr?(v/10000).toFixed(0)+'만':v+'%'}, border:{display:false} },
+        x: { grid:{display:false}, ticks:{font:{size:11},color:'#bbb'}, border:{display:false} }
+      }
+    }
+  });
+}
+
+makeChart('cRev',  [448900, 353700, 590500, 0, 0, 149000, 116900],  [149000, 0, 0, 149000, 149000, 236800, 353700],  [119900, 119900, 119900, 119900, 116900, 119900, 236800],  true);
+makeChart('cCost', [121489, 106619, 31097, 56763, 58871, 50358, 62894], [62920, 71599, 29789, 16875, 41125, 34055, 50306], [34988, 33510, 37248, 35358, 41841, 46614, 45031], true);
+makeChart('cRoas', [369, 332, 1899, 0, 0, 296, 186], [237, 0, 0, 883, 362, 695, 703], [343, 358, 322, 339, 279, 257, 526], false);
+
+function switchChart(idx) {
+  document.querySelectorAll('.chart-tab').forEach((b,i) => b.classList.toggle('active', i===idx));
+  document.querySelectorAll('.chart-single').forEach((c,i) => {
+    const wasHidden = !c.classList.contains('active');
+    c.classList.toggle('active', i===idx);
+    if (wasHidden && i===idx) {
+      const canvas = c.querySelector('canvas');
+      const chart = canvas && Chart.getChart(canvas);
+      if (chart) chart.resize();
+    }
+  });
+}
+
+// ── 누적 월 비교 차트 ──
+const CUM_LABELS = ["1일", "2일", "3일", "4일", "5일", "6일", "7일", "8일", "9일", "10일", "11일", "12일", "13일", "14일", "15일", "16일", "17일", "18일", "19일", "20일", "21일", "22일", "23일", "24일", "25일", "26일"];
+
+// 이벤트 마커 정의 (4월 기준 day: 해당 월의 일수)
+const CUM_EVENTS = [
+  { day: 6,  label: '4주년 시작',   color: '#f59e0b', dash: [4,3] },
+  { day: 19, label: '4주년 종료',   color: '#f59e0b', dash: [2,2] },
+  { day: 20, label: '가정의달·라이브', color: '#6366f1', dash: [4,3] },
+  { day: 26, label: '플친 발송',    color: '#10b981', dash: [4,3] },
+];
+
+function _makeEventPlugin(events, labels) {
+  return {
+    id: 'cumEvent',
+    afterDraw(chart) {
+      const ctx = chart.ctx;
+      const xAxis = chart.scales.x;
+      const yAxis = chart.scales.y;
+      (events || []).forEach(ev => {
+        const idx = ev.day - 1;
+        if (idx < 0 || idx >= labels.length) return;
+        const x = xAxis.getPixelForValue(idx);
+        ctx.save();
+        ctx.strokeStyle = ev.color;
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash(ev.dash || [4,3]);
+        ctx.globalAlpha = 0.7;
+        ctx.beginPath();
+        ctx.moveTo(x, yAxis.top);
+        ctx.lineTo(x, yAxis.bottom);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = ev.color;
+        ctx.font = 'bold 9px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(ev.label, x, yAxis.top - 4);
+        ctx.restore();
+      });
+    }
+  };
+}
+
+function makeChart2(id, prev, curr, isMoney, labels, events) {
+  const el = document.getElementById(id);
+  if (!el || !labels || labels.length === 0) return;
+  const plugins = events && events.length ? [_makeEventPlugin(events, labels)] : [];
+  new Chart(el, {
+    type: 'line',
+    plugins: plugins,
+    data: {
+      labels: labels,
+      datasets: [
+        { label:'3월 1~26일', data:prev, borderColor:'#a78bfa', backgroundColor:'transparent', borderWidth:1.5, pointRadius:2, tension:0.35, borderDash:[4,3] },
+        { label:'4월 1~26일', data:curr, borderColor:'#1a1a2e', backgroundColor:'rgba(26,26,46,.05)', borderWidth:2.5, pointRadius:3, tension:0.35 },
+      ]
+    },
+    options: {
+      responsive: true,
+      layout: { padding: { top: 18 } },
+      plugins: {
+        legend: { position:'bottom', labels:{ boxWidth:10, font:{size:11}, color:'#888', padding:14 } },
+        tooltip: { backgroundColor:'#1a1a2e', titleFont:{size:11}, bodyFont:{size:12},
+          callbacks: { label: ctx => ' '+ctx.dataset.label+': '+(isMoney ? ctx.parsed.y.toLocaleString('ko-KR')+'원' : ctx.parsed.y+'%') } }
+      },
+      scales: {
+        y: { beginAtZero:false, grid:{color:'#f5f5f5'}, ticks:{font:{size:11},color:'#bbb',callback:v=>isMoney?(v/10000).toFixed(0)+'만':v+'%'}, border:{display:false} },
+        x: { grid:{display:false}, ticks:{font:{size:11},color:'#bbb'}, border:{display:false} }
+      }
+    }
+  });
+}
+if (CUM_LABELS.length > 0) {
+  makeChart2('cRevCum',  [136000, 547000, 411000, 139000, 0, 0, 136000, 136000, 139000, 146000, 464837, 587000, 149000, 0, 149000, 318000, 146000, 0, 0, 146000, 0, 0, 0, 149000, 149000, 0],  [1424009, 255000, 129000, 2358000, 129000, 448900, 353700, 590500, 0, 0, 149000, 116900, 149000, 0, 0, 149000, 149000, 236800, 353700, 119900, 119900, 119900, 119900, 116900, 119900, 236800],  true,  CUM_LABELS, CUM_EVENTS);
+  makeChart2('cCostCum', [387002, 417460, 251668, 299961, 270610, 98045, 95356, 137017, 96614, 65702, 26421, 27617, 17519, 34565, 23849, 26731, 40889, 15609, 19042, 57349, 64408, 79299, 78184, 112467, 89430, 30863], [312886, 330014, 374865, 1487104, 528889, 537665, 447042, 107554, 67761, 70611, 61603, 74258, 74782, 83833, 40535, 23733, 48856, 42246, 59423, 45814, 39961, 45329, 44281, 49419, 52477, 49901], true,  CUM_LABELS, CUM_EVENTS);
+  makeChart2('cRoasCum', [35, 131, 163, 46, 0, 0, 143, 99, 144, 222, 1759, 2126, 851, 0, 625, 1190, 357, 0, 0, 255, 0, 0, 0, 132, 167, 0], [455, 77, 34, 159, 24, 83, 79, 549, 0, 0, 242, 157, 199, 0, 0, 628, 305, 561, 595, 262, 300, 265, 271, 237, 228, 475], false, CUM_LABELS, CUM_EVENTS);
+}
+
+function switchChart2(idx) {
+  document.querySelectorAll('.chart-tab2').forEach((b,i) => b.classList.toggle('active', i===idx));
+  document.querySelectorAll('.chart-single2').forEach((c,i) => {
+    const wasHidden = !c.classList.contains('active');
+    c.classList.toggle('active', i===idx);
+    if (wasHidden && i===idx) {
+      const canvas = c.querySelector('canvas');
+      const chart = canvas && Chart.getChart(canvas);
+      if (chart) chart.resize();
+    }
+  });
+}
+
+/* ── 이벤트 비교 차트 ── */
+(function() {
+  const EV_X   = ["1일", "2일", "3일", "4일", "5일", "6일", "7일", "8일", "9일", "10일", "11일", "12일", "13일", "14일"];
+  const EV1_REV  = [448900, 353700, 590500, 0, 0, 149000, 116900, 149000, 0, 0, 149000, 149000, 236800, 353700];
+  const EV1_COST = [537665, 447042, 107554, 67761, 70611, 61603, 74258, 74782, 83833, 40535, 23733, 48856, 42246, 59423];
+  const EV1_ROAS = [83, 79, 549, 0, 0, 242, 157, 199, 0, 0, 628, 305, 561, 595];
+  const EV2_REV  = [119900, 119900, 119900, 119900, 116900, 119900, 236800, null, null, null, null, null, null, null];
+  const EV2_COST = [34988, 33510, 37248, 35358, 41841, 46614, 45031, null, null, null, null, null, null, null];
+  const EV2_ROAS = [343, 358, 322, 339, 279, 257, 526, null, null, null, null, null, null, null];
+  const EV_DATA = [
+    { ev1: EV1_REV,  ev2: EV2_REV,  isMoney: true,  canvasId: 'cRevEv'  },
+    { ev1: EV1_COST, ev2: EV2_COST, isMoney: true,  canvasId: 'cCostEv' },
+    { ev1: EV1_ROAS, ev2: EV2_ROAS, isMoney: false, canvasId: 'cRoasEv' },
+  ];
+  function makeEvChart(idx) {
+    const d = EV_DATA[idx];
+    const el = document.getElementById(d.canvasId);
+    if (!el) return;
+    const existing = Chart.getChart(el);
+    if (existing) existing.destroy();
+    new Chart(el, {
+      type: 'line',
+      data: {
+        labels: EV_X,
+        datasets: [
+          { label: '4주년 04-06~04-19', data: d.ev1, borderColor: '#34d399', backgroundColor: 'transparent', borderWidth: 1.5, pointRadius: 3, pointBackgroundColor: '#34d399', tension: 0.35, borderDash: [4,3], spanGaps: false },
+          { label: '가정의달 04-20~04-26', data: d.ev2, borderColor: '#6366f1', backgroundColor: 'rgba(99,102,241,0.06)', borderWidth: 2.5, pointRadius: 4, pointBackgroundColor: '#6366f1', tension: 0.35, spanGaps: false },
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 11 }, color: '#888', padding: 14 } },
+          tooltip: { backgroundColor: '#1a1a2e', callbacks: { label: ctx => ' ' + ctx.dataset.label + ': ' + (d.isMoney ? ctx.parsed.y.toLocaleString('ko-KR') + '원' : ctx.parsed.y + '%') } }
+        },
+        scales: {
+          y: { beginAtZero: false, grid: { color: '#f5f5f5' }, ticks: { font: { size: 11 }, color: '#bbb', callback: v => d.isMoney ? (v/10000).toFixed(0)+'만' : v+'%' }, border: { display: false } },
+          x: { grid: { display: false }, ticks: { font: { size: 10 }, color: '#bbb' }, border: { display: false } }
+        }
+      }
+    });
+  }
+  if (EV_X.length > 0) EV_DATA.forEach((_, i) => makeEvChart(i));
+  window.switchChart3 = function(idx) {
+    document.querySelectorAll('.chart-tab3').forEach((b,i) => b.classList.toggle('active', i===idx));
+    document.querySelectorAll('.chart-single3').forEach((c,i) => {
+      const wasHidden = !c.classList.contains('active');
+      c.classList.toggle('active', i===idx);
+      if (wasHidden && i===idx) makeEvChart(idx);
+    });
+  };
+})();
+
+function selectCreative(idx) {
+  document.querySelectorAll('.cr-tab').forEach((b,i) => b.classList.toggle('active', i===idx));
+  document.querySelectorAll('.cr-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+  setTimeout(() => buildCreativeTrendChart('crTrend-' + idx, crTrendMetricIdx), 30);
+}
+function selectCamp(ci) {
+  document.querySelectorAll('.camp-tab').forEach((t,i) => t.classList.toggle('active', i===ci));
+  document.querySelectorAll('.camp-panel').forEach((p,i) => p.classList.toggle('active', i===ci));
+}
+function selectAd(ci, ai) {
+  const camp = document.querySelectorAll('.camp-panel')[ci];
+  camp.querySelectorAll('.cr-tab').forEach((t,i) => t.classList.toggle('active', i===ai));
+  camp.querySelectorAll('.cr-panel').forEach((p,i) => p.classList.toggle('active', i===ai));
+}
+function toggleDetail(ci) {
+  const det = document.getElementById('camp-detail-' + ci);
+  const btn = document.getElementById('camp-toggle-' + ci);
+  if (det.style.display === 'none') {
+    det.style.display = 'block';
+    btn.textContent = btn.textContent.replace('▾', '▴');
+  } else {
+    det.style.display = 'none';
+    btn.textContent = btn.textContent.replace('▴', '▾');
+  }
+}
+
+/* ── 소재별 기간별 트렌드 선차트 ── */
+const CR_TREND        = {"EMS허리마사지기_영상_겉근육_일반": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_국대 트레이너 자문_일반": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_논타깃질문_일반_1": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_다시뻐근_일반_1": {"cost": [84655, 49902, 0], "cpm": [12755, 17214, null], "ctr": [0.47, 0.45, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_마감임박_일반": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_마감임박_일반_2": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_물리치료 1/10_일반_4": {"cost": [null, 14627, 31317], "cpm": [null, 7425, 14999], "ctr": [null, 0.66, 1.2], "cpa": [null, null, 31317]}, "EMS허리마사지기_영상_시너지조합_일반": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_시너지조합_일반_1": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_시너지조합_일반_1 - 사본": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_시너지조합_일반_2": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_시너지조합_일반_3": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_신규출시_일반": {"cost": [69750, 0, 0], "cpm": [20673, null, null], "ctr": [0.8, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_신규출시_일반_1": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_신규출시_일반_3": {"cost": [null, 18964, 3442], "cpm": [null, 11466, 11068], "ctr": [null, 0.73, 0.96], "cpa": [null, null, null]}, "EMS허리마사지기_영상_아버지 단독_일반": {"cost": [140606, 69808, 0], "cpm": [13301, 16063, null], "ctr": [0.51, 0.55, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_아버지단독_타겟변경_일반": {"cost": [51048, 0, 0], "cpm": [17044, null, null], "ctr": [0.4, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_전문가_일반_1": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_전문가_일반_2": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_질문_일반": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_질문_일반_1": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_집에서 바로 풀립니다._일반_1": {"cost": [null, 78977, 225120], "cpm": [null, 14691, 15324], "ctr": [null, 1.3, 1.23], "cpa": [null, null, 225120]}, "EMS허리마사지기_영상_할인부각_일반_2": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_할인부각_일반_4": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_허리 속부터_일반_2": {"cost": [null, 22332, 14711], "cpm": [null, 11122, 13484], "ctr": [null, 0.95, 1.1], "cpa": [null, null, null]}, "EMS허리마사지기_영상_효도선물_일반": {"cost": [142032, 52059, 0], "cpm": [13215, 12553, null], "ctr": [0.61, 0.39, null], "cpa": [142032, null, null]}, "EMS허리마사지기_영상_효도선물_일반_1": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}, "EMS허리마사지기_영상_효도선물_일반_3": {"cost": [null, 0, 0], "cpm": [null, null, null], "ctr": [null, null, null], "cpa": [null, null, null]}};
+const CR_TREND_LABELS = ["3주전 04-06~04-12", "전전주 04-13~04-19", "지난주 04-20~04-26"];
+const CR_TREND_KEYS   = ['cost','cpm','ctr','cpa'];
+const CR_TREND_FMT    = ['won','won','pct','won'];
+const crTrendChartObjs = {};
+let crTrendMetricIdx = 0;
+
+function buildCreativeTrendChart(canvasId, metricIdx) {
+  const el = document.getElementById(canvasId);
+  if (!el) return;
+  if (crTrendChartObjs[canvasId]) crTrendChartObjs[canvasId].destroy();
+  const adName = el.dataset.ad;
+  const d    = (CR_TREND[adName]) || {};
+  const key  = CR_TREND_KEYS[metricIdx];
+  const fmt  = CR_TREND_FMT[metricIdx];
+  const raw  = d[key] || [null, null, null];
+  crTrendChartObjs[canvasId] = new Chart(el, {
+    type: 'line',
+    data: {
+      labels: CR_TREND_LABELS,
+      datasets: [{
+        data: raw,
+        borderColor: '#6366f1',
+        backgroundColor: 'rgba(99,102,241,0.08)',
+        borderWidth: 2.5,
+        pointBackgroundColor: raw.map((v,i) => i === 2 ? '#6366f1' : '#a5b4fc'),
+        pointRadius: 6,
+        tension: 0.35,
+        spanGaps: false,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1a1a2e',
+          callbacks: {
+            label: ctx => {
+              const v = ctx.parsed.y;
+              if (v === null) return ' —';
+              return ' ' + (fmt === 'won' ? v.toLocaleString('ko-KR')+'원' : fmt === 'pct' ? v.toFixed(2)+'%' : v);
+            }
+          }
+        }
+      },
+      scales: {
+        y: { beginAtZero: false, grid: { color: '#f5f5f5' }, ticks: { font: { size: 11 }, color: '#bbb', callback: v => fmt==='won'?(v/10000).toFixed(0)+'만':fmt==='pct'?v.toFixed(2)+'%':v }, border: { display: false } },
+        x: { grid: { display: false }, ticks: { font: { size: 11 }, color: '#555' }, border: { display: false } }
+      }
+    }
+  });
+}
+
+function switchTrend(canvasId, tabsId, metricIdx) {
+  crTrendMetricIdx = metricIdx;
+  const tabsEl = document.getElementById(tabsId);
+  if (tabsEl) tabsEl.querySelectorAll('.cr-chart-tab').forEach((b,i) => b.classList.toggle('active', i===metricIdx));
+  buildCreativeTrendChart(canvasId, metricIdx);
+}
+
+/* ── 일별 채널 매출 차트 (전전주 vs 지난주) ── */
+(function() {
+  const el = document.getElementById('chDailyChart');
+  if (!el) return;
+  const showPrev = true;
+  const datasets = [];
+  if (showPrev && [149000, 0, 0, 149000, 149000, 0, 0] !== null) {
+    datasets.push({ type:'bar', label:'cafe24 전전주', data:[149000, 0, 0, 149000, 149000, 0, 0], backgroundColor:'rgba(99,102,241,0.3)', borderColor:'rgba(99,102,241,0.6)', borderWidth:1, borderRadius:3, yAxisID:'yRev' });
+    datasets.push({ type:'bar', label:'스마트스토어 전전주', data:[0, 0, 0, 0, 0, 236800, 353700], backgroundColor:'rgba(16,185,129,0.3)', borderColor:'rgba(16,185,129,0.6)', borderWidth:1, borderRadius:3, yAxisID:'yRev' });
+  }
+  datasets.push({ type:'bar',  label:'cafe24 지난주',      data:[119900, 119900, 119900, 0, 0, 0, 119900], backgroundColor:'rgba(99,102,241,0.75)', borderRadius:3, yAxisID:'yRev' });
+  datasets.push({ type:'bar',  label:'스마트스토어 지난주', data:[0, 0, 0, 119900, 116900, 119900, 116900], backgroundColor:'rgba(16,185,129,0.75)', borderRadius:3, yAxisID:'yRev' });
+  datasets.push({ type:'line', label:'광고비 지난주',       data:[45814, 39961, 45329, 44281, 49419, 52477, 49901], borderColor:'#f59e0b', backgroundColor:'rgba(245,158,11,0.12)', tension:0.35, pointRadius:4, pointBackgroundColor:'#f59e0b', borderWidth:2, yAxisID:'yCost', order:-1 });
+  if (showPrev && [74782, 83833, 40535, 23733, 48856, 42246, 59423] !== null) {
+    datasets.push({ type:'line', label:'광고비 전전주', data:[74782, 83833, 40535, 23733, 48856, 42246, 59423], borderColor:'rgba(245,158,11,0.45)', borderDash:[4,3], tension:0.35, pointRadius:3, pointBackgroundColor:'rgba(245,158,11,0.45)', borderWidth:1.5, yAxisID:'yCost', order:-1 });
+  }
+  window._chDailyInst = new Chart(el, {
+    data: {
+      labels: ["월", "화", "수", "목", "금", "토", "일"],
+      datasets: datasets
+    },
+    options: {
+      responsive:true, maintainAspectRatio:true,
+      plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: ctx => ' '+ctx.dataset.label+': '+ctx.parsed.y.toLocaleString()+'원' } } },
+      scales:{
+        x:{ grid:{display:false}, ticks:{font:{size:11}} },
+        yRev:{ position:'left',  beginAtZero:true, grid:{color:'#f3f4f6'}, ticks:{font:{size:10},callback:v=>(v/10000).toFixed(0)+'만'} },
+        yCost:{ position:'right', beginAtZero:true, grid:{drawOnChartArea:false}, ticks:{font:{size:10},callback:v=>(v/10000).toFixed(0)+'만'} }
+      }
+    }
+  });
+})();
+
+window.toggleChDataset = function(idx) {
+  const chart = window._chDailyInst;
+  if (!chart || !chart.data.datasets[idx]) return;
+  const ds = chart.data.datasets[idx];
+  ds.hidden = !ds.hidden;
+  chart.update();
+  const btn = document.querySelector('#chDailyLegend .ch-leg-btn[data-dsidx="'+idx+'"]');
+  if (btn) {
+    btn.style.opacity = ds.hidden ? '0.35' : '1';
+    btn.style.textDecoration = ds.hidden ? 'line-through' : 'none';
+  }
+};
+
+/* ── 재세팅 효과 차트 ── */
+(function() {
+  const el = document.getElementById('resetChart');
+  if (!el) return;
+  const XLABELS = [];
+  const METRICS = [
+    { label:'CPM (원)', data:[0, 0, 0], fmt:'won', color:'#6366f1' },
+    { label:'CTR (%)',  data:[0, 0, 0], fmt:'pct', color:'#10b981' },
+    { label:'CPA (원)', data:[0, 0, 0], fmt:'won', color:'#f59e0b' },
+    { label:'CPC (원)', data:[0, 0, 0], fmt:'won', color:'#8b5cf6' },
+    { label:'ROAS (%)', data:[0, 0, 0], fmt:'roas', color:'#ec4899' },
+  ];
+  let rstIdx = 0;
+  const m0 = METRICS[0];
+  const ptColors = m0.data.map((v,i) => i===XLABELS.length-1 ? '#22c55e' : m0.color);
+  let rstChart = new Chart(el, {
+    type:'line',
+    data:{ labels:XLABELS, datasets:[{ label:m0.label, data:m0.data, borderColor:m0.color, backgroundColor:'transparent', borderWidth:2.5, pointBackgroundColor:ptColors, pointRadius:6, tension:0.35 }] },
+    options:{
+      responsive:true,
+      plugins:{ legend:{display:false}, tooltip:{ backgroundColor:'#1a1a2e', callbacks:{ label: ctx => { const v=ctx.parsed.y; return ' '+METRICS[rstIdx].label+': '+(METRICS[rstIdx].fmt==='won'?v.toLocaleString()+'원':Math.round(v)+'%'); } } } },
+      scales:{
+        y:{ beginAtZero:false, grid:{color:'#f5f5f5'}, ticks:{font:{size:11},color:'#bbb', callback:v=>METRICS[rstIdx].fmt==='won'?(v/10000).toFixed(0)+'만':Math.round(v)+'%'}, border:{display:false} },
+        x:{ grid:{display:false}, ticks:{font:{size:12,weight:'600'},color:'#555'}, border:{display:false} }
+      }
+    }
+  });
+  window.switchResetChart = function(idx) {
+    rstIdx = idx;
+    document.querySelectorAll('.rst-tab').forEach((b,i)=>b.classList.toggle('active',i===idx));
+    const m = METRICS[idx];
+    const pc = m.data.map((v,i)=>i===XLABELS.length-1?'#22c55e':m.color);
+    rstChart.data.datasets[0].label = m.label;
+    rstChart.data.datasets[0].data  = m.data;
+    rstChart.data.datasets[0].borderColor = m.color;
+    rstChart.data.datasets[0].pointBackgroundColor = pc;
+    rstChart.options.scales.y.ticks.callback = v=>m.fmt==='won'?(v/10000).toFixed(0)+'만':Math.round(v)+'%';
+    rstChart.update();
+  };
+})();
+
+/* init: build trend charts for all panels on load */
+(function() {
+  document.querySelectorAll('[id^="crTrend-"]').forEach(el => buildCreativeTrendChart(el.id, 0));
+})();
+
+/* ── 패널 토글 ── */
+function switchPanel(idx) {
+  document.querySelectorAll('.toggle-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+  document.querySelectorAll('.cmp-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+}
+
+/* ── 메타 볼륨 지표 차트 ── */
+const META_VOL_DATA = {"cost": [306669, 274590], "impressions": [22400, 18181], "clicks": [167, 220], "purchases": [0, 2], "revenue": [447000, 479600]};
+const META_WK_LABELS = ["전전주 04-13~04-19", "지난주 04-20~04-26"];
+const META_VOL_METRICS = [
+  { label:'비용',  key:'cost',        fmt:'won' },
+  { label:'노출',  key:'impressions', fmt:'num' },
+  { label:'클릭',  key:'clicks',      fmt:'num' },
+  { label:'구매',  key:'purchases',   fmt:'num' },
+  { label:'매출',  key:'revenue',     fmt:'won' },
+];
+const META_VOL_COLORS = ['#1a1a2e', '#34d399'];
+let metaVolIdx = 0;
+let metaVolChart = null;
+
+(function initMetaVolChart() {
+  const m = META_VOL_METRICS[0];
+  metaVolChart = new Chart(document.getElementById('meta_vol_chart'), {
+    type: 'bar',
+    data: {
+      labels: META_WK_LABELS,
+      datasets: [{ label: m.label, data: META_VOL_DATA[m.key], backgroundColor: META_VOL_COLORS, borderRadius: 6, borderSkipped: false }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: { backgroundColor:'#1a1a2e', callbacks: { label: ctx => { const v=ctx.parsed.y; return ' '+(m.fmt==='won'?v.toLocaleString('ko-KR')+'원':v.toLocaleString('ko-KR')); } } }
+      },
+      scales: {
+        y: { beginAtZero:true, grid:{color:'#f5f5f5'}, ticks:{font:{size:11},color:'#bbb',callback:v=>m.fmt==='won'?(v/10000).toFixed(0)+'만':v.toLocaleString()}, border:{display:false} },
+        x: { grid:{display:false}, ticks:{font:{size:12,weight:'600'},color:'#555'}, border:{display:false} }
+      }
+    }
+  });
+})();
+
+function switchMetaVol(idx) {
+  metaVolIdx = idx;
+  document.querySelectorAll('[onclick^="switchMetaVol"]').forEach((b,i) => b.classList.toggle('active', i===idx));
+  const m = META_VOL_METRICS[idx];
+  metaVolChart.data.datasets[0].label = m.label;
+  metaVolChart.data.datasets[0].data  = META_VOL_DATA[m.key];
+  metaVolChart.options.scales.y.ticks.callback = v => m.fmt==='won'?(v/10000).toFixed(0)+'만':v.toLocaleString();
+  metaVolChart.options.plugins.tooltip.callbacks.label = ctx => { const v=ctx.parsed.y; return ' '+(m.fmt==='won'?v.toLocaleString('ko-KR')+'원':v.toLocaleString('ko-KR')); };
+  metaVolChart.update();
+}
+
+/* ── 메타 효율 혼합 차트 ── */
+(function initMetaEffChart() {
+  const el = document.getElementById('meta_eff_chart');
+  if (!el) return;
+  new Chart(el, {
+    type: 'bar',
+    data: {
+      labels: META_WK_LABELS,
+      datasets: [
+        { type:'bar',  label:'CPM (원)', data:[13691, 15103], backgroundColor:['rgba(99,102,241,0.6)','rgba(99,102,241,1)'], borderRadius:5, yAxisID:'y',  order:2 },
+        { type:'bar',  label:'CPA (원)', data:[null, 137295], backgroundColor:['rgba(245,158,11,0.6)','rgba(245,158,11,1)'],  borderRadius:5, yAxisID:'y',  order:2 },
+        { type:'line', label:'CTR (%)',  data:[0.75, 1.21], borderColor:'#10b981', backgroundColor:'rgba(16,185,129,0.1)', borderWidth:2.5, pointRadius:5, pointBackgroundColor:'#10b981', tension:0, yAxisID:'y2', order:1 },
+        { type:'line', label:'ROAS (%)', data:[146, 175], borderColor:'#3b82f6', backgroundColor:'rgba(59,130,246,0.1)', borderWidth:2.5, pointRadius:5, pointBackgroundColor:'#3b82f6', tension:0, yAxisID:'y2', order:1 },
+      ]
+    },
+    options: {
+      responsive: true,
+      interaction: { mode:'index', intersect:false },
+      plugins: {
+        legend: { position:'bottom', labels:{boxWidth:12,font:{size:11},color:'#888',padding:14} },
+        tooltip: { backgroundColor:'#1a1a2e', callbacks: { label: ctx => { const v=ctx.parsed.y; return ' '+ctx.dataset.label+': '+(ctx.dataset.label.includes('%')?v+'%':v.toLocaleString('ko-KR')+'원'); } } }
+      },
+      scales: {
+        y:  { type:'linear', position:'left',  beginAtZero:true, grid:{color:'#f5f5f5'}, ticks:{font:{size:11},color:'#bbb',callback:v=>v.toLocaleString()+'원'}, border:{display:false}, title:{display:true,text:'CPM · CPA (원)',font:{size:10},color:'#aaa'} },
+        y2: { type:'linear', position:'right', beginAtZero:true, grid:{drawOnChartArea:false}, ticks:{font:{size:11},color:'#bbb',callback:v=>v+'%'}, border:{display:false}, title:{display:true,text:'CTR · ROAS (%)',font:{size:10},color:'#aaa'} }
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>
