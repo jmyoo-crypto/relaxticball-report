@@ -49,6 +49,10 @@ body { font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-s
 .chart-tab.active, .chart-tab2.active { background: #f1f5f9; color: #1a1a2e; border-color: #cbd5e1; }
 .chart-single2 { display: none; }
 .chart-single2.active { display: block; }
+.chart-tab3 { padding: 5px 14px; border-radius: 6px; font-size: 11px; font-weight: 700; border: 1px solid #e2e8f0; background: #f7f8fa; color: #94a3b8; cursor: pointer; transition: all .15s; }
+.chart-tab3.active { background: #f1f5f9; color: #1a1a2e; border-color: #cbd5e1; }
+.chart-single3 { display: none; }
+.chart-single3.active { display: block; }
 .chart-single { display: none; }
 .chart-single.active { display: block; }
 .chart-card { background: #fff; border-radius: 14px; padding: 20px 20px 14px; border: 1px solid #f0f0f0; }
@@ -184,6 +188,7 @@ tr.row-hl td { font-weight: 800; background: #fff; }
       <div class="toggle-bar">
         <button class="toggle-btn active" onclick="switchPanel(0)">지난주 VS 전전주</button>
         <button class="toggle-btn" onclick="switchPanel(1)">4월 1~26일 VS 3월 1~26일</button>
+        <button class="toggle-btn" onclick="switchPanel(2)">가정의달 04-20~04-26 VS 4주년 04-06~04-19</button>
       </div>
 
       <div class="cmp-panel active" id="panel-0">
@@ -305,6 +310,51 @@ tr.row-hl td { font-weight: 800; background: #fff; }
           <div class="budget-row"><div class="budget-period">3월 1~26일</div><div class="budget-bar-wrap"><div class="budget-bar-meta" style="width:100.0%"></div><div class="budget-bar-other" style="width:0.0%"></div></div><div class="budget-labels"><span class="budget-meta-lbl">메타 100.0%</span><span class="budget-other-lbl">네이버 0.0%</span></div></div>
         </div>
         <div class="chart-sep"></div><div class="chart-tab-bar"><button class="chart-tab2 active" onclick="switchChart2(0)">매출</button><button class="chart-tab2" onclick="switchChart2(1)">광고비</button><button class="chart-tab2" onclick="switchChart2(2)">ROAS</button></div><div class="chart-single2 active" id="c2t-0"><div class="chart-card"><div class="chart-lbl">페이드 채널 매출 — 일별</div><canvas id="cRevCum"></canvas></div></div><div class="chart-single2" id="c2t-1"><div class="chart-card"><div class="chart-lbl">총 광고비 — 일별</div><canvas id="cCostCum"></canvas></div></div><div class="chart-single2" id="c2t-2"><div class="chart-card"><div class="chart-lbl">ROAS (%) — 일별</div><canvas id="cRoasCum"></canvas></div></div>
+      </div>
+
+      
+      <div class="cmp-panel" id="panel-2">
+        <div class="vs-header">
+          <div class="vs-badge vs-curr">가정의달 04-20~04-26 (7일)</div>
+          <div class="vs-label">VS</div>
+          <div class="vs-badge vs-prev-wk">4주년 04-06~04-19 (14일)</div>
+        </div>
+        <p style="font-size:11px;color:#aaa;margin-bottom:16px;">※ 기간이 달라 KPI 박스는 일평균 기준 비교</p>
+        <div class="kpi-grid">
+          <div class="kpi-box">
+            <div class="kpi-lbl">일평균 매출</div>
+            <div class="kpi-prev">1,822,326원</div>
+            <div class="kpi-curr">1,705,697원</div>
+            <span class="tag-dn">▼ 6.4%</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-lbl">일평균 광고비</div>
+            <div class="kpi-prev">587,948원</div>
+            <div class="kpi-curr">685,804원</div>
+            <span class="tag-up">▲ 16.6%</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-lbl">ROAS</div>
+            <div class="kpi-prev">310%</div>
+            <div class="kpi-curr">249%</div>
+            <span class="tag-dn">▼ 19.8%</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-lbl">순마진 합계</div>
+            <div class="kpi-prev">6,192,978원<br><small style="color:#ccc;font-size:10px;">14일 합계</small></div>
+            <div class="kpi-curr">2,097,980원</div>
+            <span class="tag-dn">▼ 66.1%</span>
+          </div>
+        </div>
+        <div class="chart-sep"></div>
+        <div class="chart-tab-bar">
+          <button class="chart-tab3 active" onclick="switchChart3(0)">매출</button>
+          <button class="chart-tab3" onclick="switchChart3(1)">광고비</button>
+          <button class="chart-tab3" onclick="switchChart3(2)">ROAS</button>
+        </div>
+        <div class="chart-single3 active" id="c3t-0"><div class="chart-card"><div class="chart-lbl">일별 매출</div><canvas id="cRevEv"></canvas></div></div>
+        <div class="chart-single3"        id="c3t-1"><div class="chart-card"><div class="chart-lbl">일별 광고비</div><canvas id="cCostEv"></canvas></div></div>
+        <div class="chart-single3"        id="c3t-2"><div class="chart-card"><div class="chart-lbl">일별 ROAS (%)</div><canvas id="cRoasEv"></canvas></div></div>
       </div>
 
     </div>
@@ -1079,6 +1129,59 @@ function switchChart2(idx) {
     }
   });
 }
+
+/* ── 이벤트 비교 차트 ── */
+(function() {
+  const EV_X   = ["1일", "2일", "3일", "4일", "5일", "6일", "7일", "8일", "9일", "10일", "11일", "12일", "13일", "14일"];
+  const EV1_REV  = [1642914, 1351573, 1411882, 1515291, 2089576, 1380241, 1726563, 1529675, 1520254, 1735043, 2108638, 2752170, 2302162, 2446591];
+  const EV1_COST = [801638, 673289, 676222, 729266, 658685, 674834, 701076, 597258, 443197, 400959, 493815, 445570, 409717, 525752];
+  const EV1_ROAS = [205, 201, 209, 208, 317, 205, 246, 256, 343, 433, 427, 618, 562, 465];
+  const EV2_REV  = [1641530, 1217190, 1594221, 2048575, 1619810, 1849864, 1968693, null, null, null, null, null, null, null];
+  const EV2_COST = [493698, 656669, 689427, 692351, 758129, 744648, 713115, null, null, null, null, null, null, null];
+  const EV2_ROAS = [332, 185, 231, 296, 214, 248, 276, null, null, null, null, null, null, null];
+  const EV_DATA = [
+    { ev1: EV1_REV,  ev2: EV2_REV,  isMoney: true,  canvasId: 'cRevEv'  },
+    { ev1: EV1_COST, ev2: EV2_COST, isMoney: true,  canvasId: 'cCostEv' },
+    { ev1: EV1_ROAS, ev2: EV2_ROAS, isMoney: false, canvasId: 'cRoasEv' },
+  ];
+  function makeEvChart(idx) {
+    const d = EV_DATA[idx];
+    const el = document.getElementById(d.canvasId);
+    if (!el) return;
+    const existing = Chart.getChart(el);
+    if (existing) existing.destroy();
+    new Chart(el, {
+      type: 'line',
+      data: {
+        labels: EV_X,
+        datasets: [
+          { label: '4주년 04-06~04-19', data: d.ev1, borderColor: '#34d399', backgroundColor: 'transparent', borderWidth: 1.5, pointRadius: 3, pointBackgroundColor: '#34d399', tension: 0.35, borderDash: [4,3], spanGaps: false },
+          { label: '가정의달 04-20~04-26', data: d.ev2, borderColor: '#6366f1', backgroundColor: 'rgba(99,102,241,0.06)', borderWidth: 2.5, pointRadius: 4, pointBackgroundColor: '#6366f1', tension: 0.35, spanGaps: false },
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 11 }, color: '#888', padding: 14 } },
+          tooltip: { backgroundColor: '#1a1a2e', callbacks: { label: ctx => ' ' + ctx.dataset.label + ': ' + (d.isMoney ? ctx.parsed.y.toLocaleString('ko-KR') + '원' : ctx.parsed.y + '%') } }
+        },
+        scales: {
+          y: { beginAtZero: false, grid: { color: '#f5f5f5' }, ticks: { font: { size: 11 }, color: '#bbb', callback: v => d.isMoney ? (v/10000).toFixed(0)+'만' : v+'%' }, border: { display: false } },
+          x: { grid: { display: false }, ticks: { font: { size: 10 }, color: '#bbb' }, border: { display: false } }
+        }
+      }
+    });
+  }
+  if (EV_X.length > 0) EV_DATA.forEach((_, i) => makeEvChart(i));
+  window.switchChart3 = function(idx) {
+    document.querySelectorAll('.chart-tab3').forEach((b,i) => b.classList.toggle('active', i===idx));
+    document.querySelectorAll('.chart-single3').forEach((c,i) => {
+      const wasHidden = !c.classList.contains('active');
+      c.classList.toggle('active', i===idx);
+      if (wasHidden && i===idx) makeEvChart(idx);
+    });
+  };
+})();
 
 function selectCreative(idx) {
   document.querySelectorAll('.cr-tab').forEach((b,i) => b.classList.toggle('active', i===idx));
