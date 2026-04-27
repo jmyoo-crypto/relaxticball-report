@@ -162,8 +162,8 @@ tr.row-hl td { font-weight: 800; background: #fff; }
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;">
         <div style="background:#fff1f0;border:1px solid #ffa39e;border-radius:8px;padding:8px 16px;text-align:center;"><div style="font-size:10px;font-weight:700;color:#cf1322;letter-spacing:1px;margin-bottom:2px;">광고비</div><div style="font-size:18px;font-weight:800;color:#cf1322;">▲ 45%</div></div>
         <div style="background:#fff1f0;border:1px solid #ffa39e;border-radius:8px;padding:8px 16px;text-align:center;"><div style="font-size:10px;font-weight:700;color:#cf1322;letter-spacing:1px;margin-bottom:2px;">자사몰 매출</div><div style="font-size:18px;font-weight:800;color:#cf1322;">▼ 17%</div></div>
-        <div style="background:#fff1f0;border:1px solid #ffa39e;border-radius:8px;padding:8px 16px;text-align:center;"><div style="font-size:10px;font-weight:700;color:#cf1322;letter-spacing:1px;margin-bottom:2px;">CPM</div><div style="font-size:18px;font-weight:800;color:#cf1322;">▲ 18%</div></div>
-        <div style="background:#fff1f0;border:1px solid #ffa39e;border-radius:8px;padding:8px 16px;text-align:center;"><div style="font-size:10px;font-weight:700;color:#cf1322;letter-spacing:1px;margin-bottom:2px;">구매 전환</div><div style="font-size:18px;font-weight:800;color:#cf1322;">▼ 11%</div></div>
+        <div style="background:#fff1f0;border:1px solid #ffa39e;border-radius:8px;padding:8px 16px;text-align:center;"><div style="font-size:10px;font-weight:700;color:#cf1322;letter-spacing:1px;margin-bottom:2px;">스마트스토어</div><div style="font-size:18px;font-weight:800;color:#cf1322;">▼ 33%</div></div>
+        <div style="background:#fff1f0;border:1px solid #ffa39e;border-radius:8px;padding:8px 16px;text-align:center;"><div style="font-size:10px;font-weight:700;color:#cf1322;letter-spacing:1px;margin-bottom:2px;">ROAS</div><div style="font-size:18px;font-weight:800;color:#cf1322;">▼ 43%</div></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:10px;">
         <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#333;line-height:1.7;">
@@ -400,7 +400,9 @@ tr.row-hl td { font-weight: 800; background: #fff; }
           <div class="flow-tag">HYPOTHESIS — 추가 가설</div>
           <div class="flow-title">외부 요인도 자사몰 전환에 기여했을 가능성</div>
           <ul class="flow-text">
-            <li>라이브 방송, 프로모션, 이전 방문자 재방문 등 외부 유입 요인이 있는 경우 수동으로 내용을 보완해주세요.</li>
+            <li>강현이어라님, 강예찬님 금요일 콘텐츠 라이브 (4/25)</li>
+            <li>4주년 이벤트 종료 → 4/20(월)부터 가정의달 이벤트 시작 (스마트스토어 27,900 → 29,900원)</li>
+            <li>일요일 오전 카카오 플친 전송 (4/26)</li>
           </ul>
         </div>
       </div>
@@ -957,11 +959,54 @@ function switchChart(idx) {
 
 // ── 누적 월 비교 차트 ──
 const CUM_LABELS = ["1일", "2일", "3일", "4일", "5일", "6일", "7일", "8일", "9일", "10일", "11일", "12일", "13일", "14일", "15일", "16일", "17일", "18일", "19일", "20일", "21일", "22일", "23일", "24일", "25일", "26일"];
-function makeChart2(id, prev, curr, isMoney, labels) {
+
+// 이벤트 마커 정의 (4월 기준 day: 해당 월의 일수)
+const CUM_EVENTS = [
+  { day: 6,  label: '4주년 시작',   color: '#f59e0b', dash: [4,3] },
+  { day: 19, label: '4주년 종료',   color: '#f59e0b', dash: [2,2] },
+  { day: 20, label: '가정의달·라이브', color: '#6366f1', dash: [4,3] },
+  { day: 26, label: '플친 발송',    color: '#10b981', dash: [4,3] },
+];
+
+function _makeEventPlugin(events, labels) {
+  return {
+    id: 'cumEvent',
+    afterDraw(chart) {
+      const ctx = chart.ctx;
+      const xAxis = chart.scales.x;
+      const yAxis = chart.scales.y;
+      (events || []).forEach(ev => {
+        const idx = ev.day - 1;
+        if (idx < 0 || idx >= labels.length) return;
+        const x = xAxis.getPixelForValue(idx);
+        ctx.save();
+        ctx.strokeStyle = ev.color;
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash(ev.dash || [4,3]);
+        ctx.globalAlpha = 0.7;
+        ctx.beginPath();
+        ctx.moveTo(x, yAxis.top);
+        ctx.lineTo(x, yAxis.bottom);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = ev.color;
+        ctx.font = 'bold 9px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(ev.label, x, yAxis.top - 4);
+        ctx.restore();
+      });
+    }
+  };
+}
+
+function makeChart2(id, prev, curr, isMoney, labels, events) {
   const el = document.getElementById(id);
   if (!el || !labels || labels.length === 0) return;
+  const plugins = events && events.length ? [_makeEventPlugin(events, labels)] : [];
   new Chart(el, {
     type: 'line',
+    plugins: plugins,
     data: {
       labels: labels,
       datasets: [
@@ -971,6 +1016,7 @@ function makeChart2(id, prev, curr, isMoney, labels) {
     },
     options: {
       responsive: true,
+      layout: { padding: { top: 18 } },
       plugins: {
         legend: { position:'bottom', labels:{ boxWidth:10, font:{size:11}, color:'#888', padding:14 } },
         tooltip: { backgroundColor:'#1a1a2e', titleFont:{size:11}, bodyFont:{size:12},
@@ -984,9 +1030,9 @@ function makeChart2(id, prev, curr, isMoney, labels) {
   });
 }
 if (CUM_LABELS.length > 0) {
-  makeChart2('cRevCum',  [734501, 600522, 236801, 273400, 559345, 456006, 733937, 659756, 823366, 973538, 979645, 936990, 985872, 1072940, 442160, 888085, 1002382, 1137379, 1153885, 1040759, 873690, 638745, 788419, 1472349, 1578077, 1188100],  [1898600, 1203555, 1523845, 1326930, 1568026, 1642914, 1351573, 1411882, 1515291, 2089576, 1380241, 1726563, 1529675, 1520254, 1735043, 2108638, 2752170, 2302162, 2446591, 1641530, 1217190, 1594221, 2048575, 1619810, 1849864, 1968693],  true,  CUM_LABELS);
-  makeChart2('cCostCum', [335971, 193660, 187369, 187268, 196723, 202956, 241247, 313251, 319556, 343227, 387063, 313121, 300015, 320139, 360486, 396944, 353101, 326121, 443433, 524727, 536370, 598897, 560327, 665621, 861243, 400561], [946439, 613222, 726111, 674534, 761076, 801638, 673289, 676222, 729266, 658685, 674834, 701076, 597258, 443197, 400959, 493815, 445570, 409717, 525752, 504524, 663120, 697508, 701274, 765707, 750511, 717985], true,  CUM_LABELS);
-  makeChart2('cRoasCum', [219, 310, 126, 146, 284, 225, 304, 211, 258, 284, 253, 299, 329, 335, 123, 224, 284, 349, 260, 198, 163, 107, 141, 221, 183, 297], [201, 196, 210, 197, 206, 205, 201, 209, 208, 317, 205, 246, 256, 343, 433, 427, 618, 562, 465, 325, 184, 229, 292, 212, 246, 274], false, CUM_LABELS);
+  makeChart2('cRevCum',  [734501, 600522, 236801, 273400, 559345, 456006, 733937, 659756, 823366, 973538, 979645, 936990, 985872, 1072940, 442160, 888085, 1002382, 1137379, 1153885, 1040759, 873690, 638745, 788419, 1472349, 1578077, 1188100],  [1898600, 1203555, 1523845, 1326930, 1568026, 1642914, 1351573, 1411882, 1515291, 2089576, 1380241, 1726563, 1529675, 1520254, 1735043, 2108638, 2752170, 2302162, 2446591, 1641530, 1217190, 1594221, 2048575, 1619810, 1849864, 1968693],  true,  CUM_LABELS, CUM_EVENTS);
+  makeChart2('cCostCum', [335971, 193660, 187369, 187268, 196723, 202956, 241247, 313251, 319556, 343227, 387063, 313121, 300015, 320139, 360486, 396944, 353101, 326121, 443433, 524727, 536370, 598897, 560327, 665621, 861243, 400561], [946439, 613222, 726111, 674534, 761076, 801638, 673289, 676222, 729266, 658685, 674834, 701076, 597258, 443197, 400959, 493815, 445570, 409717, 525752, 504524, 663120, 697508, 701274, 765707, 750511, 717985], true,  CUM_LABELS, CUM_EVENTS);
+  makeChart2('cRoasCum', [219, 310, 126, 146, 284, 225, 304, 211, 258, 284, 253, 299, 329, 335, 123, 224, 284, 349, 260, 198, 163, 107, 141, 221, 183, 297], [201, 196, 210, 197, 206, 205, 201, 209, 208, 317, 205, 246, 256, 343, 433, 427, 618, 562, 465, 325, 184, 229, 292, 212, 246, 274], false, CUM_LABELS, CUM_EVENTS);
 }
 
 function switchChart2(idx) {
