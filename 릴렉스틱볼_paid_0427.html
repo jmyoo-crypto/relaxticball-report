@@ -30,6 +30,7 @@ body { font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-s
 @media(max-width:640px) { .kpi-grid { grid-template-columns: 1fr 1fr; } }
 .kpi-box { background: #f7f8fa; border-radius: 10px; padding: 18px 20px; }
 .kpi-lbl  { font-size: 11px; font-weight: 700; letter-spacing: .5px; color: #999; margin-bottom: 8px; }
+.kpi-prev3 { font-size: 11px; color: #d4d4d4; margin-bottom: 2px; }
 .kpi-prev { font-size: 12px; color: #bbb; margin-bottom: 4px; }
 .kpi-curr { font-size: 20px; font-weight: 800; color: #1a1a2e; margin-bottom: 8px; }
 .tag-up { display: inline-block; padding: 3px 9px; border-radius: 6px; font-size: 12px; font-weight: 700; background: #f6ffed; color: #389e0d; }
@@ -195,35 +196,41 @@ tr.row-hl td { font-weight: 800; background: #fff; }
 
       <div class="cmp-panel active" id="panel-0">
         <div class="vs-header">
+          <div class="vs-badge vs-prev" style="font-size:11px;">3주전 04-06~04-12</div><div class="vs-label">→</div>
           <div class="vs-badge vs-curr">지난주 04-20~04-26</div>
           <div class="vs-label">VS</div>
           <div class="vs-badge vs-prev-wk">전전주 04-13~04-19</div>
         </div>
         <div class="legend">
+          <span><span class="legend-dot" style="background:#94a3b8;border:1px dashed #94a3b8;"></span>3주전 04-06~04-12</span>
           <span><span class="legend-dot" style="background:#34d399;"></span>전전주 04-13~04-19</span>
           <span><span class="legend-dot" style="background:#1a1a2e;"></span>지난주 04-20~04-26</span>
         </div>
         <div class="kpi-grid">
           <div class="kpi-box">
             <div class="kpi-lbl">페이드 채널 매출</div>
+            <div class="kpi-prev3">3주전 11,118,040원</div>
             <div class="kpi-prev">14,394,533원</div>
             <div class="kpi-curr">11,939,883원</div>
             <span class="tag-dn">▼ 17.1%</span>
           </div>
           <div class="kpi-box">
             <div class="kpi-lbl">총 광고비</div>
+            <div class="kpi-prev3">3주전 4,915,010원</div>
             <div class="kpi-prev">3,316,268원</div>
             <div class="kpi-curr">4,800,629원</div>
             <span class="tag-up">▲ 44.8%</span>
           </div>
           <div class="kpi-box">
             <div class="kpi-lbl">순마진(공헌이익)</div>
+            <div class="kpi-prev3">3주전 1,395,769원</div>
             <div class="kpi-prev">4,797,209원</div>
             <div class="kpi-curr">2,097,980원</div>
             <span class="tag-dn">▼ 56.3%</span>
           </div>
           <div class="kpi-box">
             <div class="kpi-lbl">ROAS</div>
+            <div class="kpi-prev3">3주전 226%</div>
             <div class="kpi-prev">434%</div>
             <div class="kpi-curr">249%</div>
             <span class="tag-dn">▼ 42.7%</span>
@@ -950,16 +957,14 @@ tr.row-hl td { font-weight: 800; background: #fff; }
 <script>
 const DAY_LABELS = ['월','화','수','목','금','토','일'];
 
-function makeChart(id, prev, last, isCurr) {
+function makeChart(id, wk3, prev, last, isCurr) {
+  const datasets = [];
+  if (wk3) datasets.push({ label:'3주전 04-06~04-12', data:wk3, borderColor:'#94a3b8', backgroundColor:'transparent', borderWidth:1.5, pointRadius:3, pointBackgroundColor:'#94a3b8', tension:0.35, borderDash:[2,4] });
+  datasets.push({ label:'전전주 04-13~04-19', data:prev, borderColor:'#34d399', backgroundColor:'transparent', borderWidth:1.5, pointRadius:3, pointBackgroundColor:'#34d399', tension:0.35, borderDash:[4,3] });
+  datasets.push({ label:'지난주 04-20~04-26', data:last, borderColor:'#1a1a2e', backgroundColor:'rgba(26,26,46,.05)', borderWidth:2.5, pointRadius:4, pointBackgroundColor:'#1a1a2e', tension:0.35 });
   new Chart(document.getElementById(id), {
     type: 'line',
-    data: {
-      labels: DAY_LABELS,
-      datasets: [
-        { label:'전전주 04-13~04-19', data:prev, borderColor:'#34d399', backgroundColor:'transparent', borderWidth:1.5, pointRadius:3, pointBackgroundColor:'#34d399', tension:0.35, borderDash:[4,3] },
-        { label:'지난주 04-20~04-26', data:last, borderColor:'#1a1a2e', backgroundColor:'rgba(26,26,46,.05)', borderWidth:2.5, pointRadius:4, pointBackgroundColor:'#1a1a2e', tension:0.35 },
-      ]
-    },
+    data: { labels: DAY_LABELS, datasets },
     options: {
       responsive: true,
       plugins: {
@@ -975,9 +980,9 @@ function makeChart(id, prev, last, isCurr) {
   });
 }
 
-makeChart('cRev',  [1529675, 1520254, 1735043, 2108638, 2752170, 2302162, 2446591],  [1641530, 1217190, 1594221, 2048575, 1619810, 1849864, 1968693],  true);
-makeChart('cCost', [585396, 430963, 390213, 486957, 437839, 401526, 516635], [493698, 656669, 689427, 692351, 758129, 744648, 713115], true);
-makeChart('cRoas', [261, 353, 445, 433, 629, 573, 474], [332, 185, 231, 296, 214, 248, 276], false);
+makeChart('cRev',  [1642914, 1351573, 1411882, 1515291, 2089576, 1380241, 1726563],  [1529675, 1520254, 1735043, 2108638, 2752170, 2302162, 2446591],  [1641530, 1217190, 1594221, 2048575, 1619810, 1849864, 1968693],  true);
+makeChart('cCost', [656703, 630146, 636245, 718268, 646945, 663589, 689712], [585396, 430963, 390213, 486957, 437839, 401526, 516635], [493698, 656669, 689427, 692351, 758129, 744648, 713115], true);
+makeChart('cRoas', [250, 214, 222, 211, 323, 208, 250], [261, 353, 445, 433, 629, 573, 474], [332, 185, 231, 296, 214, 248, 276], false);
 
 function switchChart(idx) {
   document.querySelectorAll('.chart-tab').forEach((b,i) => b.classList.toggle('active', i===idx));
